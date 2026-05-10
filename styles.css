@@ -1783,7 +1783,7 @@ body.sidebar-open .sidebar {
     bottom: 10px;
     z-index: 30;
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(6, 1fr);
     gap: 4px;
     padding: 6px;
     border: 1px solid var(--line);
