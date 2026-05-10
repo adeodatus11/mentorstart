@@ -137,13 +137,13 @@ a {
 
 .project-logo-row img {
   width: 100%;
-  height: 38px;
+  height: 42px;
   object-fit: contain;
 }
 
 .project-logo-row img:last-child {
   grid-column: 1 / -1;
-  height: 58px;
+  height: 48px;
   padding: 6px;
   border-radius: 6px;
   background: #fff;
@@ -165,21 +165,6 @@ a {
   background: var(--active-role);
   color: #fff;
   font-weight: 800;
-}
-
-.brand-mark.brand-logo {
-  width: 70px;
-  height: 52px;
-  padding: 5px;
-  background: #fff;
-  border: 1px solid var(--line);
-}
-
-.brand-mark.brand-logo img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
 }
 
 .brand strong,
