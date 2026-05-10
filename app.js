@@ -791,6 +791,26 @@ function ensureEuFooter() {
   target.appendChild(footer);
 }
 
+function ensureProjectStrip() {
+  const shell = document.querySelector(".stage-shell");
+  if (!shell || document.querySelector(".project-site-strip")) return;
+  const strip = document.createElement("div");
+  strip.className = "project-site-strip";
+  strip.innerHTML = `
+    <a href="index.html" class="project-strip-home" aria-label="Przejdź do strony głównej przewodnika">
+      <strong>MentorStart</strong>
+      <span>cyfrowy przewodnik wdrożeniowy</span>
+    </a>
+    <div class="project-strip-logos" aria-label="Logotypy projektu">
+      <img src="assets/Logo-2025.png" alt="WIN4SMEs" />
+      <img src="assets/cove-polska-logo.png" alt="COVE Polska" />
+      <img src="assets/Orzeł + szkoła mistrzów.png" alt="ZSZ5 we Wrocławiu — Szkoła Mistrzów" />
+      <img src="assets/PL_Co-fundedbytheEU_RGB_POS.png" alt="Finansowane przez Unię Europejską" />
+    </div>
+  `;
+  shell.prepend(strip);
+}
+
 function setupEvents() {
   document.querySelectorAll("[data-scroll-target]").forEach((button) => {
     button.addEventListener("click", () => {
@@ -916,6 +936,7 @@ renderTasks();
 renderScenario();
 renderQuestions();
 updateSelfCheck();
+ensureProjectStrip();
 ensureEuFooter();
 setupEvents();
 setRole(state.role);
