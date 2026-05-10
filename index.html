@@ -1,0 +1,653 @@
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Przewodnik wdrożeniowy mentora | ZSZ5</title>
+    <meta
+      name="description"
+      content="Interaktywny przewodnik wdrożeniowy dla mentora i nauczyciela początkującego."
+    />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%232f7d5c'/%3E%3Ctext x='32' y='40' text-anchor='middle' font-family='Arial,sans-serif' font-size='28' font-weight='800' fill='white'%3EW%3C/text%3E%3C/svg%3E"
+    />
+    <link rel="preconnect" href="https://unpkg.com" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="Nawigacja główna">
+        <a class="brand" href="#start" aria-label="Przejdź do ekranu startowego">
+          <span class="brand-mark">W</span>
+          <span>
+            <strong>MentorStart</strong>
+            <small>ZSZ5 Wrocław</small>
+          </span>
+        </a>
+
+        <nav class="nav-list">
+          <a href="#start" class="nav-link active"><i data-lucide="home"></i><span>Start</span></a>
+          <a href="#mapa" class="nav-link"><i data-lucide="map"></i><span>Mapa procesu</span></a>
+          <a href="#centra" class="nav-link"><i data-lucide="layout-dashboard"></i><span>Centra pracy</span></a>
+          <a href="#sciezka" class="nav-link"><i data-lucide="list-checks"></i><span>Kroki</span></a>
+          <a href="spotkania.html" class="nav-link"><i data-lucide="messages-square"></i><span>Spotkania</span></a>
+          <a href="obserwacje.html" class="nav-link"><i data-lucide="scan-eye"></i><span>Obserwacje</span></a>
+          <a href="narzedzia.html" class="nav-link"><i data-lucide="wrench"></i><span>Narzędzia</span></a>
+          <a href="baza-wiedzy.html" class="nav-link"><i data-lucide="book-open"></i><span>Baza wiedzy</span></a>
+          <a href="multimedia.html" class="nav-link"><i data-lucide="panels-top-left"></i><span>Multimedia</span></a>
+        </nav>
+
+        <div class="sidebar-panel">
+          <p class="eyebrow">Tryb pracy</p>
+          <div class="role-switch" role="group" aria-label="Wybór roli">
+            <button class="role-option active" type="button" data-role="mentor">Mentor</button>
+            <button class="role-option" type="button" data-role="teacher">Nauczyciel</button>
+            <button class="role-option" type="button" data-role="director">Dyrekcja</button>
+          </div>
+        </div>
+      </aside>
+
+      <main>
+        <header class="topbar">
+          <button class="icon-button menu-toggle" type="button" aria-label="Pokaż nawigację">
+            <i data-lucide="menu"></i>
+          </button>
+          <div class="search-box">
+            <i data-lucide="search"></i>
+            <input id="guideSearch" type="search" placeholder="Szukaj: rodzic, dziennik, staż..." />
+          </div>
+          <div class="role-status" aria-live="polite">
+            <span>Aktywna strefa</span>
+            <strong id="currentRoleLabel">Mentor</strong>
+          </div>
+          <button class="ghost-button" type="button" data-scroll-target="#co-teraz">
+            <i data-lucide="clipboard-check"></i>
+            Następny krok
+          </button>
+        </header>
+
+        <section id="start" class="section hero-section">
+          <div class="hero-copy">
+            <p class="eyebrow">Proces wdrożenia nauczyciela</p>
+            <h1>Interaktywny przewodnik po procesie wdrożenia nauczyciela w szkole.</h1>
+            <p>
+              Strona porządkuje działania mentora i nauczyciela początkującego: etapy,
+              zadania, rozmowy, dokumenty, procedury, ryzyka i materiały operacyjne na pierwszy
+              rok pracy.
+            </p>
+            <div class="hero-actions">
+              <button class="primary-button" type="button" data-scroll-target="#co-teraz">
+                <i data-lucide="arrow-right-circle"></i>
+                Przejdź do aktualnego etapu
+              </button>
+              <button class="secondary-button" type="button" data-scroll-target="#mapa">
+                <i data-lucide="route"></i>
+                Zobacz mapę procesu
+              </button>
+              <a class="secondary-button" href="spotkania.html">
+                <i data-lucide="calendar-check"></i>
+                Otwórz 9 spotkań
+              </a>
+            </div>
+          </div>
+
+          <div class="role-cards" aria-label="Wybór perspektywy">
+            <button class="persona-card active" type="button" data-role="mentor">
+              <i data-lucide="user-check"></i>
+              <strong>Strefa mentora</strong>
+              <span>Harmonogram spotkań, checklisty kontroli procesu, pytania diagnostyczne i procedury interwencji.</span>
+            </button>
+            <button class="persona-card" type="button" data-role="teacher">
+              <i data-lucide="graduation-cap"></i>
+              <strong>Strefa nauczyciela początkującego</strong>
+              <span>Zadania do wykonania, terminy, dokumenty, pytania do mentora i procedury codziennej pracy.</span>
+            </button>
+            <button class="persona-card" type="button" data-role="director">
+              <i data-lucide="landmark"></i>
+              <strong>Strefa dyrekcji / koordynatora</strong>
+              <span>Decyzje organizacyjne, kontrola minimalnych punktów programu, ankiety i aktualizacja wdrożenia.</span>
+            </button>
+          </div>
+
+          <div class="journey-graphic" aria-label="Schemat drogi wdrożenia">
+            <img src="grafiki/G01-hero-mapa-drogi.svg" alt="Mapa drogi wdrożenia nauczyciela od przygotowania do samodzielnej pracy i ewaluacji końca roku." />
+            <div class="journey-stage-links" aria-label="Linki do etapów drogi wdrożenia">
+              <a href="tydzien-0.html">Przed startem</a>
+              <a href="tydzien-1.html">Tydzień 1</a>
+              <a href="tydzien-2.html">Tydzień 2</a>
+              <a href="tydzien-3.html">Tydzień 3</a>
+              <a href="tydzien-4.html">Tydzień 4</a>
+              <a href="miesiac-2.html">Miesiąc 2</a>
+              <a href="polrocze-1.html">Półrocze 1</a>
+              <a href="polrocze-2.html">Półrocze 2</a>
+              <a href="koniec-roku.html">Koniec roku</a>
+            </div>
+          </div>
+        </section>
+
+        <section class="section role-zone-section">
+          <div class="section-heading">
+            <p class="eyebrow">Rozdzielenie perspektyw</p>
+            <h2>Trzy strefy pracy</h2>
+            <p>
+              Przełącznik zmienia treści operacyjne, kolejność zadań i sposób formułowania działań.
+              Mentor prowadzi proces, nauczyciel wykonuje zadania wdrożeniowe, a dyrekcja/koordynator pilnuje warunków organizacyjnych.
+            </p>
+          </div>
+          <div class="role-zone-grid">
+            <article class="role-zone-card mentor-zone" data-zone="mentor">
+              <span class="zone-label">Mentor</span>
+              <h3>Odpowiedzialność za proces</h3>
+              <ul>
+                <li>zaplanowanie kontaktu i cyklu rozmów,</li>
+                <li>weryfikacja dostępu do systemów i dokumentów,</li>
+                <li>monitorowanie ryzyk: dokumentacja, rodzice, klasa, obciążenie,</li>
+                <li>uruchomienie właściwych osób wsparcia.</li>
+              </ul>
+            </article>
+            <article class="role-zone-card teacher-zone" data-zone="teacher">
+              <span class="zone-label">Nauczyciel początkujący</span>
+              <h3>Odpowiedzialność za wykonanie zadań</h3>
+              <ul>
+                <li>uzyskanie dostępów i informacji organizacyjnych,</li>
+                <li>prowadzenie dziennika i dokumentacji,</li>
+                <li>przygotowanie PSO, wymagań i terminów klasyfikacji,</li>
+                <li>zgłaszanie pytań, trudności i spraw wymagających decyzji.</li>
+              </ul>
+            </article>
+            <article class="role-zone-card director-zone" data-zone="director">
+              <span class="zone-label">Dyrekcja / koordynator</span>
+              <h3>Odpowiedzialność za warunki programu</h3>
+              <ul>
+                <li>przypisanie mentora i decyzje organizacyjne,</li>
+                <li>kontrola minimalnych punktów wdrożenia,</li>
+                <li>uruchamianie wsparcia specjalistów i procedur,</li>
+                <li>ewaluacja programu oraz aktualizacja materiałów.</li>
+              </ul>
+            </article>
+          </div>
+          <figure class="wide-visual role-comparison-visual">
+            <img src="grafiki/G12-strefa-mentora-nauczyciela.svg" alt="Porównanie strefy mentora i strefy nauczyciela początkującego: odpowiedzialności, zadania i wspólna praca." />
+          </figure>
+        </section>
+
+        <section id="centra" class="section">
+          <div class="section-heading">
+            <p class="eyebrow">Centra pracy</p>
+            <h2>Wejścia do pełnych modułów podręcznika</h2>
+            <p>Te podstrony rozwijają raport w konkretne narzędzia pracy: role, spotkania, obserwacje, karty do druku i multimedia.</p>
+          </div>
+          <div class="hub-grid">
+            <a class="hub-card" href="centrum-mentora.html"><i data-lucide="user-check"></i><h3>Centrum mentora</h3><p>Rola, granice, fazy relacji, OWP, ryzyka i rytm spotkań.</p></a>
+            <a class="hub-card" href="centrum-nauczyciela.html"><i data-lucide="graduation-cap"></i><h3>Centrum nauczyciela</h3><p>Zadania, refleksje miesięczne, przygotowanie do rozmów i plan rozwoju.</p></a>
+            <a class="hub-card" href="centrum-dyrekcji.html"><i data-lucide="landmark"></i><h3>Centrum dyrekcji</h3><p>Kontrola programu, przypisanie mentora, ankiety i decyzje organizacyjne.</p></a>
+            <a class="hub-card" href="spotkania.html"><i data-lucide="messages-square"></i><h3>9 spotkań</h3><p>Pełne agendy, pytania i karty ustaleń dla całego roku.</p></a>
+            <a class="hub-card" href="obserwacje.html"><i data-lucide="scan-eye"></i><h3>Obserwacje lekcji</h3><p>Arkusz obserwacji, model OWP i rozmowa po lekcji.</p></a>
+            <a class="hub-card" href="narzedzia.html"><i data-lucide="printer"></i><h3>Karty do druku</h3><p>Kontrakt, IPR, refleksja, ankieta, mapa kontaktów i klasyfikacja.</p></a>
+          </div>
+        </section>
+
+        <section id="co-teraz" class="section now-section">
+          <div class="section-heading">
+            <p class="eyebrow">Aktualny etap</p>
+            <h2>Następny krok w procesie wdrożenia</h2>
+            <p data-role-copy="mentor">
+              Wybierz etap. Panel pokaże zadanie mentora, pytanie kontrolne i ryzyko do sprawdzenia.
+            </p>
+            <p data-role-copy="teacher" hidden>
+              Wybierz etap. Panel pokaże zadanie nauczyciela początkującego, pytanie do wyjaśnienia
+              i ryzyko organizacyjne.
+            </p>
+          </div>
+
+          <div class="stage-picker" role="tablist" aria-label="Etap wdrożenia">
+            <button class="stage-pill active" type="button" data-stage="before">Przed startem</button>
+            <button class="stage-pill" type="button" data-stage="week1">Tydzień 1</button>
+            <button class="stage-pill" type="button" data-stage="week2">Tydzień 2</button>
+            <button class="stage-pill" type="button" data-stage="week3">Tydzień 3</button>
+            <button class="stage-pill" type="button" data-stage="week4">Tydzień 4</button>
+            <button class="stage-pill" type="button" data-stage="month2">Miesiąc 2</button>
+            <button class="stage-pill" type="button" data-stage="halfYear1">Półrocze 1</button>
+            <button class="stage-pill" type="button" data-stage="halfYear2">Półrocze 2</button>
+            <button class="stage-pill" type="button" data-stage="year">Koniec roku</button>
+          </div>
+
+          <div class="now-grid">
+            <article class="focus-card">
+              <span class="card-kicker">Zadanie operacyjne</span>
+              <h3 id="nextActionTitle">Potwierdź dane wejściowe przed rozpoczęciem pracy</h3>
+              <p id="nextActionBody">
+                Sprawdź, czy nauczyciel ma godzinę i miejsce stawienia się, plan pierwszego dnia,
+                kontakt do mentora, informację o klasach oraz instrukcję uzyskania dostępu do dziennika.
+              </p>
+              <a class="text-button" id="stageDetailLink" href="tydzien-0.html">
+                Otwórz podstronę etapu <i data-lucide="arrow-up-right"></i>
+              </a>
+            </article>
+
+            <article class="mini-card">
+              <i data-lucide="message-circle"></i>
+              <h3>Pytanie kontrolne</h3>
+              <p id="nextQuestion">Których informacji nauczyciel nie ma jeszcze przed pierwszym dniem?</p>
+            </article>
+
+            <article class="mini-card risk-card">
+              <i data-lucide="alert-triangle"></i>
+              <h3>Ryzyko</h3>
+              <p id="nextRisk">Brak danych organizacyjnych powoduje opóźnienie w dostępie do dziennika, sal, kluczy i planu zajęć.</p>
+            </article>
+          </div>
+        </section>
+
+        <section id="mapa" class="section">
+          <div class="section-heading">
+            <p class="eyebrow">Proces</p>
+            <h2>Mapa wdrożenia nauczyciela</h2>
+            <p>
+              Mapa pokazuje główne obszary wdrożenia: orientację, organizację szkoły,
+              dokumenty, mentoring, sytuacje wymagające reakcji oraz higienę pracy.
+            </p>
+          </div>
+
+          <div class="process-map">
+            <button class="process-node active" type="button" data-module="orientacja">
+              <span>01</span><strong>Orientacja</strong><small>pierwsze dni</small>
+            </button>
+            <button class="process-node" type="button" data-module="szkola">
+              <span>02</span><strong>Jak działa szkoła</strong><small>ludzie i rytm</small>
+            </button>
+            <button class="process-node" type="button" data-module="dokumenty">
+              <span>03</span><strong>Dokumenty</strong><small>dziennik, PSO, awans</small>
+            </button>
+            <button class="process-node" type="button" data-module="mentoring">
+              <span>04</span><strong>Mentoring</strong><small>rozmowy i obserwacje</small>
+            </button>
+            <button class="process-node" type="button" data-module="sytuacje">
+              <span>05</span><strong>Trudne sytuacje</strong><small>klasa, rodzic, kryzys</small>
+            </button>
+            <button class="process-node" type="button" data-module="dobrostan">
+              <span>06</span><strong>Dobrostan</strong><small>granice i refleksja</small>
+            </button>
+          </div>
+
+          <article class="module-detail" id="moduleDetail">
+            <div>
+              <p class="eyebrow">Moduł 01</p>
+              <h3>Orientacja: informacje wymagane przed rozpoczęciem pracy</h3>
+              <p>
+                Mentor sprawdza, czy nauczyciel ma dane kontaktowe, plan pierwszego dnia,
+                informacje o klasach, dostęp do dziennika oraz instrukcje dotyczące sal i kluczy.
+              </p>
+            </div>
+            <ul class="tag-list">
+              <li>checklista startowa</li>
+              <li>dostępy</li>
+              <li>osoby kontaktowe</li>
+            </ul>
+          </article>
+        </section>
+
+        <section id="sciezka" class="section">
+          <div class="section-heading split-heading">
+            <div>
+              <p class="eyebrow">Ścieżka krok po kroku</p>
+              <h2>Widok etapowy i tygodniowy</h2>
+              <p>
+                Zadania są podzielone na etapy pierwszego roku. Widok mentora i widok nauczyciela
+                mają osobne checklisty.
+              </p>
+            </div>
+            <div class="view-toggle" role="group" aria-label="Widok zadań">
+              <button class="view-button active" type="button" data-view="mentor">Dla mentora</button>
+              <button class="view-button" type="button" data-view="teacher">Dla nauczyciela</button>
+              <button class="view-button" type="button" data-view="director">Dla dyrekcji</button>
+            </div>
+          </div>
+
+          <div class="task-board" id="taskBoard" aria-live="polite"></div>
+        </section>
+
+        <section id="baza" class="section knowledge-section">
+          <div class="section-heading">
+            <p class="eyebrow">Baza wiedzy</p>
+            <h2>Skrót bazy wiedzy</h2>
+            <p>
+              Pełna baza wiedzy jest osobną podstroną. Zawiera karty operacyjne o dokumentach,
+              awansie, komunikacji, sytuacjach trudnych i podstawach prawnych.
+            </p>
+          </div>
+
+          <div class="knowledge-grid">
+            <article class="knowledge-card" data-search-card>
+              <i data-lucide="monitor-check"></i>
+              <h3>Dziennik elektroniczny</h3>
+              <p>Obecności, tematy, oceny i uwagi wpisuje się systematycznie. Wiadomości do rodziców są elementem dokumentacji, więc powinny być rzeczowe i jednoznaczne.</p>
+            </article>
+            <article class="knowledge-card" data-search-card>
+              <i data-lucide="file-signature"></i>
+              <h3>PSO i wymagania edukacyjne</h3>
+              <p>Na początku roku należy przygotować zasady oceniania oraz wymagania dla klas. Dokumenty muszą być zgodne z wewnątrzszkolnym systemem oceniania.</p>
+            </article>
+            <article class="knowledge-card" data-search-card>
+              <i data-lucide="landmark"></i>
+              <h3>Awans zawodowy</h3>
+              <p>Kluczowe są terminy, plan rozwoju, dokumentowanie działań, obserwacje zajęć oraz końcowa ocena lub postępowanie wymagane na danym etapie.</p>
+            </article>
+            <article class="knowledge-card" data-search-card>
+              <i data-lucide="users-round"></i>
+              <h3>Kontakt z rodzicem</h3>
+              <p>Sprawy poważne należy konsultować z wychowawcą. Po rozmowie warto zapisać datę, temat, ustalenia i osoby obecne w swoim dzienniku pracy.</p>
+            </article>
+            <article class="knowledge-card" data-search-card>
+              <i data-lucide="shield-alert"></i>
+              <h3>Uczeń w kryzysie</h3>
+              <p>Sygnały przemocy, zaniedbania, autoagresji lub zagrożenia zdrowia wymagają przekazania sprawy pedagogowi, psychologowi, wychowawcy i dyrekcji.</p>
+            </article>
+            <article class="knowledge-card" data-search-card>
+              <i data-lucide="briefcase-business"></i>
+              <h3>Wynagrodzenie i dodatki</h3>
+              <p>Warto wyjaśnić składniki pensji: wynagrodzenie zasadnicze, wysługę lat, dodatek motywacyjny, funkcyjny, warunki pracy i godziny ponadwymiarowe.</p>
+            </article>
+          </div>
+          <div class="hero-actions">
+            <a class="primary-button" href="baza-wiedzy.html">
+              <i data-lucide="book-open"></i>
+              Otwórz pełną bazę wiedzy
+            </a>
+          </div>
+        </section>
+
+        <section id="rozmowy" class="section">
+          <div class="section-heading">
+            <p class="eyebrow">Rozmowy mentorskie</p>
+            <h2>Scenariusze spotkań i bank pytań</h2>
+            <p>
+              Każda rozmowa ma cel, zakres kontroli i listę ustaleń. Scenariusze można stosować
+              jako protokół spotkania mentorskiego.
+            </p>
+          </div>
+
+          <div class="conversation-layout">
+            <div class="scenario-tabs" role="tablist" aria-label="Scenariusze rozmów">
+              <button class="scenario-tab active" type="button" data-scenario="first">Pierwsza rozmowa</button>
+              <button class="scenario-tab" type="button" data-scenario="twoWeeks">Po 2 tygodniach</button>
+              <button class="scenario-tab" type="button" data-scenario="month">Po miesiącu</button>
+              <button class="scenario-tab" type="button" data-scenario="halfYear">Koniec półrocza</button>
+            </div>
+            <article class="scenario-card" id="scenarioCard"></article>
+          </div>
+
+          <div class="question-bank">
+            <div class="section-heading compact">
+              <p class="eyebrow">Szybkie pytania</p>
+              <h3>Wybierz obszar rozmowy</h3>
+            </div>
+            <div class="question-filters">
+              <button class="question-chip active" type="button" data-question-set="adaptacja">Adaptacja</button>
+              <button class="question-chip" type="button" data-question-set="dokumenty">Dokumenty</button>
+              <button class="question-chip" type="button" data-question-set="klasa">Klasa</button>
+              <button class="question-chip" type="button" data-question-set="rodzice">Rodzice</button>
+              <button class="question-chip" type="button" data-question-set="dobrostan">Dobrostan</button>
+            </div>
+            <div class="question-list" id="questionList"></div>
+          </div>
+        </section>
+
+        <section id="narzedzia" class="section tools-section">
+          <div class="section-heading">
+            <p class="eyebrow">Narzędzia pracy</p>
+            <h2>Diagnoza, notatka i szybka procedura</h2>
+            <p>
+              Narzędzia służą do kontroli procesu: oceny stanu adaptacji, zapisania ustaleń
+              i wyboru procedury dla typowej sytuacji problemowej.
+            </p>
+          </div>
+
+          <div class="tools-grid">
+            <article class="tool-card">
+              <div class="card-title">
+                <i data-lucide="sliders-horizontal"></i>
+                <h3>Miniankieta adaptacji</h3>
+              </div>
+              <img class="tool-visual" src="grafiki/G13-miniankieta-adaptacji.svg" alt="Infografika samooceny adaptacji w czterech obszarach: procedury, klasa, dokumentacja i dobrostan." />
+              <form id="selfCheckForm" class="self-check">
+                <label>
+                  Orientacja w procedurach
+                  <input type="range" min="1" max="5" value="3" name="procedury" />
+                </label>
+                <label>
+                  Pewność w pracy z klasą
+                  <input type="range" min="1" max="5" value="3" name="klasa" />
+                </label>
+                <label>
+                  Dokumentacja i terminy
+                  <input type="range" min="1" max="5" value="2" name="dokumenty" />
+                </label>
+                <label>
+                  Obciążenie i regeneracja
+                  <input type="range" min="1" max="5" value="3" name="dobrostan" />
+                </label>
+              </form>
+              <div class="score-box">
+                <strong id="selfCheckScore">55%</strong>
+                <span id="selfCheckHint">Zaplanuj rozmowę o dokumentach i terminach.</span>
+              </div>
+            </article>
+
+            <article class="tool-card journal-card">
+              <div class="card-title">
+                <i data-lucide="notebook-pen"></i>
+                <h3>Dziennik wdrożenia poza stroną</h3>
+              </div>
+              <img class="tool-visual" src="grafiki/G14-dziennik-wdrozenia-wzor.svg" alt="Wzór karty dziennika wdrożenia z polami na datę, etap, ustalenia, zadania i pytania." />
+              <p>Po każdej rozmowie mentor lub nauczyciel prowadzi krótką notatkę w zeszycie, pliku szkolnym albo własnym dokumencie.</p>
+              <ol>
+                <li>Data i etap procesu.</li>
+                <li>Tematy rozmowy.</li>
+                <li>Ustalenia i osoba odpowiedzialna.</li>
+                <li>Termin sprawdzenia.</li>
+                <li>Pytania do kolejnego spotkania.</li>
+              </ol>
+            </article>
+
+            <article class="tool-card triage-card">
+              <div class="card-title">
+                <i data-lucide="shield-alert"></i>
+                <h3>Gdy pojawia się trudna sytuacja</h3>
+              </div>
+              <img class="tool-visual" src="grafiki/G15-procedury-szybkiej-reakcji.svg" alt="Flowchart procedur szybkiej reakcji dla trudnej klasy, trudnego rodzica i ucznia w kryzysie." />
+              <div class="triage-list">
+                <button type="button" data-triage="class">Klasa nie reaguje</button>
+                <button type="button" data-triage="parent">Trudny rodzic</button>
+                <button type="button" data-triage="crisis">Uczeń w kryzysie</button>
+              </div>
+              <div class="triage-result" id="triageResult">
+                <strong>Wybierz sytuację</strong>
+                <p>Zobaczysz krótką ścieżkę: co zrobić od razu, kogo włączyć i co zapisać.</p>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section id="biblioteka" class="section">
+          <div class="section-heading">
+            <p class="eyebrow">Materiały merytoryczne</p>
+            <h2>Materiały operacyjne</h2>
+            <p>
+              Poniższe materiały są treścią roboczą przewodnika. Zostały wyprowadzone z dokumentów
+              Markdown i przepisane na format użyteczny w procesie wdrożenia.
+            </p>
+          </div>
+
+          <figure class="wide-visual materials-visual">
+            <img src="grafiki/G16-materialy-do-pobrania.svg" alt="Miniatury materiałów do pobrania: pakiet startowy, checklista pierwszego tygodnia, agenda rozmowy, klasyfikacja i zamknięcie roku." />
+          </figure>
+
+          <div class="materials-grid">
+            <article class="material-card" data-search-card>
+              <i data-lucide="file-check-2"></i>
+              <h3>Pakiet startowy nauczyciela</h3>
+              <ul>
+                <li>mentor lub osoba wspierająca: imię, telefon, e-mail, forma kontaktu,</li>
+                <li>godzina i miejsce stawienia się pierwszego dnia,</li>
+                <li>plan zajęć na pierwszy tydzień oraz numery sal,</li>
+                <li>informacja o dostępie do dziennika elektronicznego,</li>
+                <li>podstawowe dane klas, których nauczyciel będzie uczyć.</li>
+              </ul>
+            </article>
+            <article class="material-card" data-search-card>
+              <i data-lucide="calendar-days"></i>
+              <h3>Rytm roku szkolnego</h3>
+              <ul>
+                <li>wrzesień: zmiany planu, organizacja klas, pierwsze zasady pracy,</li>
+                <li>koniec półrocza: klasyfikacja, dokumentacja, zebrania, rady pedagogiczne,</li>
+                <li>maj-czerwiec: egzaminy, wycieczki, dokumentacja końcowa, oceny roczne,</li>
+                <li>terminy do wpisania: rady, wywiadówki, klasyfikacja, wymagania edukacyjne.</li>
+              </ul>
+            </article>
+            <article class="material-card" data-search-card>
+              <i data-lucide="file-text"></i>
+              <h3>Dokumenty pierwszego miesiąca</h3>
+              <ul>
+                <li>dziennik elektroniczny: obecności, oceny, tematy lekcji, uwagi,</li>
+                <li>PSO: zasady oceniania dla przedmiotu zgodne z WSO,</li>
+                <li>plan wynikowy lub wymagania edukacyjne dla klas,</li>
+                <li>dostosowania dla uczniów z orzeczeniami, IPET lub opiniami,</li>
+                <li>terminy klasyfikacji i wymagane wpisy w systemie.</li>
+              </ul>
+            </article>
+          </div>
+
+          <div class="procedure-grid">
+            <article class="procedure-card" data-search-card>
+              <h3>Procedura: dziennik elektroniczny</h3>
+              <ol>
+                <li>Sprawdź dostęp do klas i planu zajęć.</li>
+                <li>Temat lekcji wpisuj w dniu zajęć albo najpóźniej następnego dnia.</li>
+                <li>Obecności uzupełniaj na bieżąco, ponieważ status widzą rodzice i dyrekcja.</li>
+                <li>Oceny wpisuj systematycznie; nie odkładaj ich na koniec tygodnia.</li>
+                <li>W wiadomościach do rodziców używaj pełnych, jednoznacznych sformułowań.</li>
+              </ol>
+            </article>
+            <article class="procedure-card" data-search-card>
+              <h3>Procedura: nieobecność nauczyciela</h3>
+              <ol>
+                <li>Poinformuj koordynatora zastępstw lub sekretariat możliwie najwcześniej.</li>
+                <li>Podaj zakres nieobecności: dzień, godziny, klasy, sale.</li>
+                <li>Przekaż tematy lub zadania dla klas, jeżeli jest to możliwe.</li>
+                <li>Po powrocie sprawdź, które lekcje zostały zrealizowane jako zastępstwa.</li>
+              </ol>
+            </article>
+            <article class="procedure-card" data-search-card>
+              <h3>Procedura: zwolnienie ucznia z lekcji</h3>
+              <ol>
+                <li>Nie zwalniaj ucznia wyłącznie na ustną prośbę ucznia.</li>
+                <li>Sprawdź informację od rodzica w dzienniku lub decyzję wychowawcy.</li>
+                <li>W sytuacji niejasnej skontaktuj się z wychowawcą albo sekretariatem.</li>
+                <li>Odnotuj zwolnienie zgodnie z zasadami przyjętymi w dzienniku.</li>
+              </ol>
+            </article>
+            <article class="procedure-card" data-search-card>
+              <h3>Procedura: wypadek lub zasłabnięcie ucznia</h3>
+              <ol>
+                <li>Zabezpiecz miejsce zdarzenia i przerwij zajęcia, jeśli wymaga tego sytuacja.</li>
+                <li>Wezwij pomoc medyczną, jeżeli istnieje zagrożenie zdrowia.</li>
+                <li>Niezwłocznie poinformuj dyrekcję oraz wychowawcę klasy.</li>
+                <li>Odnotuj zdarzenie i przekaż informacje osobie prowadzącej dokumentację wypadku.</li>
+              </ol>
+            </article>
+            <article class="procedure-card" data-search-card>
+              <h3>Procedura: kontakt z rodzicem</h3>
+              <ol>
+                <li>W sprawach bieżących użyj dziennika elektronicznego.</li>
+                <li>Przy sprawach poważnych poinformuj wychowawcę przed kontaktem z rodzicem.</li>
+                <li>W wiadomości opisz fakt, datę, zachowanie lub ocenę; unikaj ocen osoby.</li>
+                <li>Po rozmowie zapisz krótką notatkę: data, temat, ustalenia, dalsze kroki.</li>
+              </ol>
+            </article>
+            <article class="procedure-card" data-search-card>
+              <h3>Procedura: uczeń w kryzysie</h3>
+              <ol>
+                <li>Nie interpretuj samodzielnie sygnałów przemocy, zaniedbania lub autoagresji.</li>
+                <li>Przekaż informację pedagogowi lub psychologowi szkolnemu.</li>
+                <li>Powiadom wychowawcę klasy i dyrekcję, jeśli sytuacja jest pilna.</li>
+                <li>Przy bezpośrednim zagrożeniu zdrowia lub życia wezwij pomoc.</li>
+              </ol>
+            </article>
+          </div>
+
+          <div class="accordion" id="practiceAccordion">
+            <button class="accordion-trigger" type="button">
+              <span>Awans zawodowy: kontrola aktualnych wymagań</span>
+              <i data-lucide="chevron-down"></i>
+            </button>
+            <div class="accordion-panel">
+              <p>
+                Awans i ocena pracy zależą od aktualnego stanu prawnego oraz statusu nauczyciela.
+                Mentor nie interpretuje przepisów samodzielnie. Jego rola operacyjna polega na
+                sprawdzeniu, czy nauczyciel wie, gdzie są aktualne wymagania, kto w szkole wyjaśnia
+                procedurę, jakie obserwacje i rozmowy są ujęte w harmonogramie oraz jakie materiały warto
+                gromadzić jako dowody pracy.
+              </p>
+            </div>
+            <button class="accordion-trigger" type="button">
+              <span>Wynagrodzenie: elementy do wyjaśnienia nowemu nauczycielowi</span>
+              <i data-lucide="chevron-down"></i>
+            </button>
+            <div class="accordion-panel">
+              <p>
+                Nauczyciel powinien znać składniki wynagrodzenia: wynagrodzenie zasadnicze,
+                dodatek za wysługę lat, dodatek motywacyjny, dodatek funkcyjny, dodatek za warunki
+                pracy oraz godziny ponadwymiarowe. Mentor nie rozlicza wynagrodzenia, ale powinien
+                wskazać, gdzie znajdują się regulaminy i z kim wyjaśniać pierwszą wypłatę.
+              </p>
+            </div>
+            <button class="accordion-trigger" type="button">
+              <span>Prawa i obowiązki: minimum operacyjne</span>
+              <i data-lucide="chevron-down"></i>
+            </button>
+            <div class="accordion-panel">
+              <p>
+                Obowiązki: prowadzenie zajęć, bezpieczeństwo uczniów, dokumentacja, przestrzeganie
+                statutu i regulaminów, tajemnica zawodowa oraz doskonalenie zawodowe. Prawa:
+                ochrona prawna nauczyciela podczas wykonywania obowiązków, prawo do rozwoju,
+                dostęp do świadczeń socjalnych i możliwość wnioskowania o ocenę pracy zgodnie z
+                przepisami.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-grid">
+            <article class="faq-card" data-search-card>
+              <h3>FAQ: pierwsze dni</h3>
+              <p><strong>Czy trzeba znać wszystkie procedury w pierwszym dniu?</strong> Nie. Priorytetem są: plan dnia, sale, dziennik, klucze, kontakt do mentora i sekretariatu.</p>
+              <p><strong>Co zrobić z pytaniami?</strong> Zapisywać i omawiać na spotkaniu mentorskich. Nie odkładać spraw proceduralnych bez terminu.</p>
+            </article>
+            <article class="faq-card" data-search-card>
+              <h3>FAQ: klasa i rodzice</h3>
+              <p><strong>Gdy klasa nie reaguje?</strong> Zmień formę pracy, porozmawiaj z konkretnymi uczniami po lekcji, włącz wychowawcę przy powtarzalnym problemie.</p>
+              <p><strong>Gdy rodzic eskaluje?</strong> Przerwij spór, zaproponuj rozmowę z wychowawcą, udokumentuj kontakt.</p>
+            </article>
+            <article class="faq-card" data-search-card>
+              <h3>FAQ: dokumenty</h3>
+              <p><strong>Co jest pilne we wrześniu?</strong> Dziennik, plan wynikowy/wymagania edukacyjne, PSO, terminy klasyfikacji i zasady kontaktu z rodzicami.</p>
+              <p><strong>Co dokumentować?</strong> Oceny, obecności, tematy, ważne rozmowy z rodzicami, dostosowania dla uczniów oraz ustalenia formalne.</p>
+            </article>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <nav class="mobile-nav" aria-label="Nawigacja mobilna">
+      <a href="#start" class="active"><i data-lucide="home"></i><span>Start</span></a>
+      <a href="#mapa"><i data-lucide="map"></i><span>Mapa</span></a>
+      <a href="#sciezka"><i data-lucide="list-checks"></i><span>Kroki</span></a>
+      <a href="#rozmowy"><i data-lucide="messages-square"></i><span>Rozmowy</span></a>
+      <a href="baza-wiedzy.html"><i data-lucide="book-open"></i><span>Wiedza</span></a>
+    </nav>
+
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Obserwacje lekcji | Proces wdrożenia nauczyciela</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="role-mentor stage-page">
+    <main class="stage-shell">
+      <nav class="stage-nav" aria-label="Nawigacja">
+        <a href="index.html">Strona główna</a>
+        <a href="spotkania.html">9 spotkań</a>
+        <a class="active" href="obserwacje.html">Obserwacje</a>
+        <a href="narzedzia.html">Narzędzia</a>
+        <a href="centrum-mentora.html">Centrum mentora</a>
+        <a href="baza-wiedzy.html">Baza wiedzy</a>
+      </nav>
+
+      <header class="stage-header">
+        <div>
+          <p class="eyebrow">Obserwacja i feedback</p>
+          <h1>Arkusz obserwacji lekcji i rozmowa po obserwacji</h1>
+          <p>Obserwacja nie jest listą błędów. To sposób zebrania faktów do rozmowy rozwojowej, w której mentor wybiera 1-2 najważniejsze aspekty do dalszej pracy.</p>
+          <div class="stage-actions">
+            <button class="primary-button" type="button" data-print-target="#observation-sheet">Drukuj arkusz obserwacji</button>
+            <a class="secondary-button" href="narzedzia.html#karta-obserwacji">Otwórz kartę narzędziową</a>
+          </div>
+        </div>
+        <div class="media-visual">
+          <svg viewBox="0 0 720 420" role="img" aria-label="Cykl obserwacji lekcji: przygotowanie, obserwacja, rozmowa, działanie">
+            <rect width="720" height="420" rx="24" fill="#eef7f2" />
+            <g font-family="Segoe UI, Arial" font-weight="800" text-anchor="middle">
+              <circle cx="150" cy="210" r="72" fill="#dff4e8" stroke="#2f7d5c" stroke-width="5" />
+              <text x="150" y="202" fill="#173d2f" font-size="21">Przygotuj</text><text x="150" y="230" fill="#4f6259" font-size="15">cel obserwacji</text>
+              <circle cx="330" cy="210" r="72" fill="#fff" stroke="#2f7d5c" stroke-width="5" />
+              <text x="330" y="202" fill="#173d2f" font-size="21">Obserwuj</text><text x="330" y="230" fill="#4f6259" font-size="15">fakty z lekcji</text>
+              <circle cx="510" cy="210" r="72" fill="#dff4e8" stroke="#2f7d5c" stroke-width="5" />
+              <text x="510" y="202" fill="#173d2f" font-size="21">Rozmawiaj</text><text x="510" y="230" fill="#4f6259" font-size="15">OWP</text>
+              <path d="M222 210 H258 M402 210 H438" stroke="#2f7d5c" stroke-width="8" stroke-linecap="round" />
+              <text x="360" y="74" fill="#173d2f" font-size="28">Jedna obserwacja = jeden plan działania</text>
+            </g>
+          </svg>
+        </div>
+      </header>
+
+      <section class="section">
+        <div class="section-heading">
+          <p class="eyebrow">Model OWP</p>
+          <h2>Informacja zwrotna bez etykietowania</h2>
+        </div>
+        <div class="owp-grid">
+          <article class="owp-card"><h3>Obserwacja</h3><p>Opisz konkretne zachowanie albo sytuację z lekcji. Nie interpretuj intencji i nie oceniaj osoby.</p><p><strong>Przykład:</strong> „W czasie pracy w grupach trzy zespoły zaczęły rozmawiać o sprawach poza zadaniem”.</p></article>
+          <article class="owp-card"><h3>Wpływ</h3><p>Pokaż skutek dla uczenia się, rytmu lekcji, bezpieczeństwa albo relacji z klasą.</p><p><strong>Przykład:</strong> „Przez kilka minut część uczniów nie pracowała nad celem lekcji”.</p></article>
+          <article class="owp-card"><h3>Pytanie</h3><p>Zapraszaj do refleksji i decyzji, zamiast podawać gotową ocenę.</p><p><strong>Przykład:</strong> „Jakiego sygnału lub instrukcji możesz użyć następnym razem?”.</p></article>
+        </div>
+      </section>
+
+      <section id="observation-sheet" class="print-card">
+        <header>
+          <div><p class="eyebrow">Karta do druku</p><h2>Arkusz obserwacji lekcji</h2></div>
+          <button class="print-button" type="button" data-print-target="#observation-sheet">Drukuj</button>
+        </header>
+        <div class="print-grid">
+          <article>
+            <h3>Dane obserwacji</h3>
+            <label class="field-line">Nauczyciel<input type="text" /></label>
+            <label class="field-line">Klasa i przedmiot<input type="text" /></label>
+            <label class="field-line">Data, godzina, obserwator<input type="text" /></label>
+            <label class="field-line">Cel obserwacji<input type="text" /></label>
+          </article>
+          <article>
+            <h3>Struktura lekcji</h3>
+            <p>Wprowadzenie i aktywizacja</p><div class="field-box"></div>
+            <p>Realizacja celu i treści</p><div class="field-box"></div>
+            <p>Zarządzanie czasem</p><div class="field-box"></div>
+            <p>Zakończenie i podsumowanie</p><div class="field-box"></div>
+          </article>
+          <article>
+            <h3>Relacja z klasą</h3>
+            <p>Język i zrozumiałość przekazu</p><div class="field-box"></div>
+            <p>Kontakt wzrokowy i mowa ciała</p><div class="field-box"></div>
+            <p>Reakcja na uczniów i zachowanie</p><div class="field-box"></div>
+            <p>Motywowanie i aktywność uczniów</p><div class="field-box"></div>
+          </article>
+        </div>
+        <div class="print-grid">
+          <article><h3>Mocna strona</h3><div class="field-box"></div></article>
+          <article><h3>Obszar do rozwoju</h3><div class="field-box"></div></article>
+          <article><h3>Pytania po obserwacji</h3><div class="field-box"></div></article>
+        </div>
+        <p class="print-note">Po obserwacji wybierz maksymalnie 1-2 tematy. Omawianie wszystkiego naraz osłabia skuteczność informacji zwrotnej.</p>
+      </section>
+    </main>
+    <script src="app.js"></script>
+  </body>
+</html>

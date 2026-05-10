@@ -1,0 +1,159 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 380" width="1200" height="380" font-family="Segoe UI, Arial, sans-serif">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f0f7f4;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#e8f4fb;stop-opacity:1"/>
+    </linearGradient>
+    <linearGradient id="pathGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#2D7D4F;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#1E6B9E;stop-opacity:1"/>
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.12"/>
+    </filter>
+    <marker id="arrowBlue" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#1E6B9E"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="380" fill="url(#bgGrad)" rx="16"/>
+  <rect x="0" y="0" width="1200" height="4" fill="url(#pathGrad)" rx="2"/>
+
+  <!-- Title -->
+  <text x="600" y="38" text-anchor="middle" font-size="20" font-weight="700" fill="#1a3a2a" letter-spacing="0.5">MAPA DROGI WDROŻENIA NAUCZYCIELA</text>
+  <text x="600" y="56" text-anchor="middle" font-size="12" fill="#4a7a5a" letter-spacing="1">od przygotowania do samodzielnej pracy</text>
+
+  <!-- Road path (curved) -->
+  <path d="M 80,200 C 180,200 180,160 300,160 C 420,160 420,200 540,200 C 660,200 660,150 780,150 C 900,150 900,200 1020,200 C 1080,200 1110,190 1130,180" stroke="url(#pathGrad)" stroke-width="6" fill="none" stroke-linecap="round" opacity="0.25"/>
+  <path d="M 80,200 C 180,200 180,160 300,160 C 420,160 420,200 540,200 C 660,200 660,150 780,150 C 900,150 900,200 1020,200 C 1080,200 1110,190 1130,180" stroke="url(#pathGrad)" stroke-width="3" fill="none" stroke-linecap="round" stroke-dasharray="8,5"/>
+
+  <!-- Stage data: x, y, label, sublabel, color -->
+  <!-- Stage 0: Przed startem -->
+  <g filter="url(#shadow)">
+    <circle cx="80" cy="200" r="28" fill="#2D7D4F"/>
+    <text x="80" y="196" text-anchor="middle" font-size="11" font-weight="700" fill="white">ETW</text>
+    <text x="80" y="210" text-anchor="middle" font-size="10" fill="white">0</text>
+  </g>
+  <text x="80" y="242" text-anchor="middle" font-size="11" font-weight="700" fill="#1a3a2a">PRZED</text>
+  <text x="80" y="256" text-anchor="middle" font-size="10" fill="#4a7a5a">STARTEM</text>
+  <rect x="46" y="265" width="68" height="18" rx="4" fill="#2D7D4F" opacity="0.12"/>
+  <text x="80" y="278" text-anchor="middle" font-size="9" fill="#2D7D4F">Pakiet startowy</text>
+
+  <!-- Stage 1: Tydzień 1 -->
+  <g filter="url(#shadow)">
+    <circle cx="215" cy="160" r="28" fill="#2D7D4F"/>
+    <text x="215" y="156" text-anchor="middle" font-size="9" font-weight="700" fill="white">TYDZIEŃ</text>
+    <text x="215" y="170" text-anchor="middle" font-size="12" font-weight="700" fill="white">1</text>
+  </g>
+  <text x="215" y="202" text-anchor="middle" font-size="11" font-weight="700" fill="#1a3a2a">PIERWSZY</text>
+  <text x="215" y="216" text-anchor="middle" font-size="10" fill="#4a7a5a">TYDZIEŃ</text>
+  <rect x="176" y="225" width="78" height="18" rx="4" fill="#2D7D4F" opacity="0.12"/>
+  <text x="215" y="238" text-anchor="middle" font-size="9" fill="#2D7D4F">Dostępy, procedury</text>
+
+  <!-- Stage 2: Tydzień 2 -->
+  <g filter="url(#shadow)">
+    <circle cx="360" cy="160" r="28" fill="#3a8a5a"/>
+    <text x="360" y="156" text-anchor="middle" font-size="9" font-weight="700" fill="white">TYDZIEŃ</text>
+    <text x="360" y="170" text-anchor="middle" font-size="12" font-weight="700" fill="white">2</text>
+  </g>
+  <text x="360" y="202" text-anchor="middle" font-size="11" font-weight="700" fill="#1a3a2a">DZIENNIK</text>
+  <text x="360" y="216" text-anchor="middle" font-size="10" fill="#4a7a5a">I KLASY</text>
+  <rect x="322" y="225" width="76" height="18" rx="4" fill="#3a8a5a" opacity="0.12"/>
+  <text x="360" y="238" text-anchor="middle" font-size="9" fill="#3a8a5a">Oceny, obecności</text>
+
+  <!-- Stage 3: Tydzień 3 -->
+  <g filter="url(#shadow)">
+    <circle cx="500" cy="200" r="28" fill="#4a9a6a"/>
+    <text x="500" y="196" text-anchor="middle" font-size="9" font-weight="700" fill="white">TYDZIEŃ</text>
+    <text x="500" y="210" text-anchor="middle" font-size="12" font-weight="700" fill="white">3</text>
+  </g>
+  <text x="500" y="242" text-anchor="middle" font-size="11" font-weight="700" fill="#1a3a2a">PSO</text>
+  <text x="500" y="256" text-anchor="middle" font-size="10" fill="#4a7a5a">I WYMAGANIA</text>
+  <rect x="458" y="265" width="84" height="18" rx="4" fill="#4a9a6a" opacity="0.12"/>
+  <text x="500" y="278" text-anchor="middle" font-size="9" fill="#4a9a6a">Kryteria oceniania</text>
+
+  <!-- Stage 4: Tydzień 4 -->
+  <g filter="url(#shadow)">
+    <circle cx="638" cy="200" r="28" fill="#2a7a9a"/>
+    <text x="638" y="196" text-anchor="middle" font-size="9" font-weight="700" fill="white">TYDZIEŃ</text>
+    <text x="638" y="210" text-anchor="middle" font-size="12" font-weight="700" fill="white">4</text>
+  </g>
+  <text x="638" y="242" text-anchor="middle" font-size="11" font-weight="700" fill="#1a3a2a">PROCEDURY</text>
+  <text x="638" y="256" text-anchor="middle" font-size="10" fill="#4a6a7a">REAKCJI</text>
+  <rect x="598" y="265" width="80" height="18" rx="4" fill="#2a7a9a" opacity="0.12"/>
+  <text x="638" y="278" text-anchor="middle" font-size="9" fill="#2a7a9a">Kryzys, eskalacja</text>
+
+  <!-- Stage 5: Miesiąc 2 -->
+  <g filter="url(#shadow)">
+    <circle cx="775" cy="150" r="28" fill="#1E6B9E"/>
+    <text x="775" y="146" text-anchor="middle" font-size="9" font-weight="700" fill="white">MIESIĄC</text>
+    <text x="775" y="160" text-anchor="middle" font-size="12" font-weight="700" fill="white">2</text>
+  </g>
+  <text x="775" y="192" text-anchor="middle" font-size="11" font-weight="700" fill="#1a3a2a">OBSERWACJE</text>
+  <text x="775" y="206" text-anchor="middle" font-size="10" fill="#4a6a7a">I FEEDBACK</text>
+  <rect x="732" y="215" width="86" height="18" rx="4" fill="#1E6B9E" opacity="0.12"/>
+  <text x="775" y="228" text-anchor="middle" font-size="9" fill="#1E6B9E">Cykl rozwojowy</text>
+
+  <!-- Stage 6: Półrocze 1 -->
+  <g filter="url(#shadow)">
+    <circle cx="910" cy="200" r="28" fill="#165a8e"/>
+    <text x="910" y="194" text-anchor="middle" font-size="8" font-weight="700" fill="white">PÓŁROCZE</text>
+    <text x="910" y="210" text-anchor="middle" font-size="12" font-weight="700" fill="white">1</text>
+  </g>
+  <text x="910" y="242" text-anchor="middle" font-size="11" font-weight="700" fill="#1a3a2a">KLASYFIKACJA</text>
+  <text x="910" y="256" text-anchor="middle" font-size="10" fill="#4a6a7a">ŚRÓDROCZNA</text>
+  <rect x="868" y="265" width="84" height="18" rx="4" fill="#165a8e" opacity="0.12"/>
+  <text x="910" y="278" text-anchor="middle" font-size="9" fill="#165a8e">Checklista ocen</text>
+
+  <!-- Stage 7: Półrocze 2 -->
+  <g filter="url(#shadow)">
+    <circle cx="1040" cy="200" r="28" fill="#0d4a7e"/>
+    <text x="1040" y="194" text-anchor="middle" font-size="8" font-weight="700" fill="white">PÓŁROCZE</text>
+    <text x="1040" y="210" text-anchor="middle" font-size="12" font-weight="700" fill="white">2</text>
+  </g>
+  <text x="1040" y="242" text-anchor="middle" font-size="11" font-weight="700" fill="#1a3a2a">SAMODZIELNOŚĆ</text>
+  <text x="1040" y="256" text-anchor="middle" font-size="10" fill="#4a6a7a">I AWANS</text>
+  <rect x="994" y="265" width="92" height="18" rx="4" fill="#0d4a7e" opacity="0.12"/>
+  <text x="1040" y="278" text-anchor="middle" font-size="9" fill="#0d4a7e">Dokumenty awansu</text>
+
+  <!-- Stage 8: Koniec roku -->
+  <g filter="url(#shadow)">
+    <circle cx="1150" cy="180" r="32" fill="#e8a020"/>
+    <text x="1150" y="174" text-anchor="middle" font-size="8" font-weight="700" fill="white">KONIEC</text>
+    <text x="1150" y="186" text-anchor="middle" font-size="8" font-weight="700" fill="white">ROKU</text>
+    <text x="1150" y="198" text-anchor="middle" font-size="14" fill="white">★</text>
+  </g>
+  <text x="1150" y="226" text-anchor="middle" font-size="11" font-weight="700" fill="#1a3a2a">EWALUACJA</text>
+  <text x="1150" y="240" text-anchor="middle" font-size="10" fill="#7a5a2a">I ZAMKNIĘCIE</text>
+  <rect x="1105" y="249" width="90" height="18" rx="4" fill="#e8a020" opacity="0.12"/>
+  <text x="1150" y="262" text-anchor="middle" font-size="9" fill="#c07010">Wnioski, plan rok+1</text>
+
+  <!-- Connector dots between stages -->
+  <circle cx="147" cy="182" r="4" fill="#2D7D4F" opacity="0.5"/>
+  <circle cx="157" cy="174" r="3" fill="#2D7D4F" opacity="0.4"/>
+  <circle cx="285" cy="160" r="4" fill="#3a8a5a" opacity="0.5"/>
+  <circle cx="430" cy="174" r="4" fill="#4a9a6a" opacity="0.5"/>
+  <circle cx="570" cy="200" r="4" fill="#2a7a9a" opacity="0.5"/>
+  <circle cx="707" cy="178" r="4" fill="#1E6B9E" opacity="0.5"/>
+  <circle cx="843" cy="172" r="4" fill="#165a8e" opacity="0.5"/>
+  <circle cx="975" cy="200" r="4" fill="#0d4a7e" opacity="0.5"/>
+  <circle cx="1090" cy="188" r="4" fill="#0d4a7e" opacity="0.5"/>
+
+  <!-- Legend -->
+  <rect x="30" y="310" width="560" height="52" rx="8" fill="white" opacity="0.7"/>
+  <text x="44" y="328" font-size="10" font-weight="700" fill="#1a3a2a">LEGENDA:</text>
+  <circle cx="110" cy="324" r="7" fill="#2D7D4F"/>
+  <text x="122" y="328" font-size="10" fill="#1a3a2a">Etapy z mentorem</text>
+  <circle cx="250" cy="324" r="7" fill="#1E6B9E"/>
+  <text x="262" y="328" font-size="10" fill="#1a3a2a">Etapy konsolidacji</text>
+  <circle cx="390" cy="324" r="7" fill="#e8a020"/>
+  <text x="402" y="328" font-size="10" fill="#1a3a2a">Zamknięcie cyklu</text>
+  <text x="44" y="350" font-size="9" fill="#5a7a6a">Czas trwania pełnego cyklu wdrożenia: 1 rok szkolny | Mentor: opiekun stażu/wychowawca doświadczony | Program: COVE WP3 A4</text>
+
+  <!-- Right info box -->
+  <rect x="620" y="310" width="550" height="52" rx="8" fill="white" opacity="0.7"/>
+  <text x="636" y="328" font-size="10" font-weight="700" fill="#1E6B9E">FILARY WSPARCIA:</text>
+  <text x="636" y="344" font-size="9.5" fill="#1a3a2a">🗂 Dziennik wdrożenia  |  👥 Spotkania mentorskie  |  📋 Checklistas etapów  |  📚 Baza wiedzy</text>
+  <text x="636" y="357" font-size="9" fill="#5a7a8a">Nauczyciel nie jest sam – każdy etap ma wsparcie, narzędzia i osobę kontaktową.</text>
+</svg>
