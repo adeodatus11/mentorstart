@@ -2,7 +2,7 @@
 <html lang="pl">
 <head>
 <meta charset="utf-8">
-<title>Onboarding nauczycieli — ZSZ nr 5 Wrocław · WIN4SMEs</title>
+<title>Wdrożenie nauczycieli — ZSZ nr 5 Wrocław · WIN4SMEs</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%2313212e'/%3E%3Ccircle cx='18' cy='18' r='5' fill='%23d8694a'/%3E%3Cpath d='M18 42h28' stroke='%23f4efe6' stroke-width='6' stroke-linecap='round'/%3E%3Cpath d='M18 30h20' stroke='%23f4efe6' stroke-width='6' stroke-linecap='round'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -57,6 +57,9 @@
     border:0;
   }
   .topnav .brand .dot{width:9px;height:9px;background:var(--coral);border-radius:50%;display:inline-block;}
+  .topnav .brand-logos{display:flex;align-items:center;gap:16px;}
+  .topnav .brand-logos img{height:34px;width:auto;max-width:138px;object-fit:contain;}
+  .topnav .brand-logos img:first-child{height:44px;}
   .topnav .right{display:flex;align-items:center;gap:24px;}
   .topnav nav{display:flex;gap:28px;}
   .topnav nav a{
@@ -83,9 +86,11 @@
   @media (max-width:820px){
     .wrap{padding:0 24px;}
     .topnav nav{display:none;}
-    .topnav .brand span:last-child{display:none;}
     .topnav .row{gap:12px;}
     .topnav .right{gap:8px;flex:0 0 auto;}
+    .topnav .brand-logos{gap:10px;}
+    .topnav .brand-logos img{height:28px;max-width:112px;}
+    .topnav .brand-logos img:first-child{height:36px;}
     .hero h1{max-width:100%;}
     .hero .lede{max-width:100%;}
     .hero .meta{
@@ -164,6 +169,7 @@
     background:var(--paper);
     margin:64px 0 0;padding:28px 40px;
   }
+  .hero .logos a{border:0;}
   .hero .logos img{height:56px;width:auto;}
   .hero .logos .lg-win{height:80px;}
   .hero .logos .lg-eu{height:60px;}
@@ -458,6 +464,7 @@
   footer .fund-strip .fund-logos{
     display:flex;align-items:center;gap:36px;flex-shrink:0;
   }
+  footer .fund-strip .fund-logos a{border:0;}
   footer .fund-strip .fund-win{height:88px;width:auto;}
   footer .fund-strip .fund-eu{height:64px;width:auto;}
   footer .fund-strip .fund-text{flex:1;min-width:280px;}
@@ -482,9 +489,12 @@
 <!-- ===== NAV ===== -->
 <header class="topnav">
   <div class="wrap row">
-    <a href="#" class="brand">
+    <a href="#program" class="brand" aria-label="Strona główna">
       <span class="dot"></span>
-      <span data-i18n="nav.brand">Onboarding nauczycieli · ZSZ nr 5</span>
+      <span class="brand-logos" aria-hidden="true">
+        <img src="assets/logo-win4smes-2025.png" alt="">
+        <img src="assets/logo-covepolska.png" alt="">
+      </span>
     </a>
     <div class="right">
       <nav>
@@ -532,9 +542,15 @@
     </div>
 
     <div class="logos">
-      <img src="assets/logo-zsz5.png" alt="ZSZ nr 5">
-      <img src="assets/logo-covepolska.png" alt="COVE Polska">
-      <img class="lg-win" src="assets/logo-win4smes-2025.png" alt="WIN4SMEs">
+      <a href="https://zsz5.edupage.org" target="_blank" rel="noopener" aria-label="Zespół Szkół Zawodowych nr 5 we Wrocławiu">
+        <img src="assets/logo-zsz5.png" alt="ZSZ nr 5">
+      </a>
+      <a href="https://covepolska.pl" target="_blank" rel="noopener" aria-label="COVE Polska">
+        <img src="assets/logo-covepolska.png" alt="COVE Polska">
+      </a>
+      <a href="https://win4smes.eu" target="_blank" rel="noopener" aria-label="WIN4SMEs">
+        <img class="lg-win" src="assets/logo-win4smes-2025.png" alt="WIN4SMEs">
+      </a>
       <img class="lg-eu" src="assets/logo-eu.png" alt="Co-funded by the European Union">
     </div>
   </div>
@@ -577,7 +593,7 @@
       <article class="goal coral">
         <div class="gn">→ 03</div>
         <h3 data-i18n="goals.c3.t">Mniej stresu, mniej odejść</h3>
-        <p data-i18n="goals.c3.p">Onboarding to inwestycja w dobrostan — nauczyciela i szkoły. Chcemy obniżyć poziom „przeżywania" pierwszych miesięcy i zatrzymać w zawodzie ludzi, których szkoła naprawdę potrzebuje.</p>
+        <p data-i18n="goals.c3.p">Proces wdrożenia to inwestycja w dobrostan — nauczyciela i szkoły. Chcemy obniżyć poziom „przeżywania" pierwszych miesięcy i zatrzymać w zawodzie ludzi, których szkoła naprawdę potrzebuje.</p>
         <ul class="check">
           <li data-i18n="goals.c3.l1">Moduł wellbeing wzorowany na praktyce z Finlandii</li>
           <li data-i18n="goals.c3.l2">Indywidualny Plan Rozwoju (IPR) na semestr</li>
@@ -636,7 +652,7 @@
 
     <div class="quote-card">
       <div class="qm">„</div>
-      <div class="qt" data-i18n="challenges.quote">Szkoły opierają się na tym, co ludzie akurat wiedzą — nie na tym, co powinni umieć przekazać.</div>
+      <div class="qt" data-i18n="challenges.quote">Żeby czuć się bezpiecznie w nowej pracy, potrzebuję wiedzieć, co będzie się działo i do kogo mogę się zwrócić.</div>
       <div class="qs" data-i18n="challenges.quote_src">— Wniosek powtarzający się w rozmowach z nauczycielami ZSZ5, 2025</div>
     </div>
   </div>
@@ -648,7 +664,7 @@
     <div class="sec-head">
       <div class="eyebrow"><span class="num">04 / 05</span><span data-i18n="wroclaw.eyebrow">Co robimy we Wrocławiu</span></div>
       <h2 data-i18n-html="wroclaw.title">Trzy połączone elementy. <span class="accent-coral">Jeden spójny ekosystem.</span></h2>
-      <p class="sub" data-i18n="wroclaw.sub">Zespół Szkół Zawodowych nr 5 we Wrocławiu pilotuje od roku szkolnego 2025/2026 trójelementowy model onboardingu — równolegle papierowy, cyfrowy i wideo.</p>
+      <p class="sub" data-i18n="wroclaw.sub">Zespół Szkół Zawodowych nr 5 we Wrocławiu pilotuje od roku szkolnego 2025/2026 trójelementowy model wdrożenia — równolegle papierowy, cyfrowy i wideo.</p>
     </div>
 
     <div class="pillars">
@@ -658,7 +674,7 @@
         </div>
         <div class="pnum" data-i18n="wroclaw.p1.n">01 — Podręcznik</div>
         <h3 data-i18n="wroclaw.p1.t">Workbook mentora i nauczyciela</h3>
-        <p data-i18n="wroclaw.p1.p">Tygodniowe zadania onboardingowe, checklisty, scenariusze 9 spotkań mentoringowych, karty refleksji, IPR — wszystko w jednym dokumencie warsztatowym z miejscem na notatki.</p>
+        <p data-i18n="wroclaw.p1.p">Zadania na kolejne okresy pracy, checklisty, cykl konkretnych spotkań w pierwszym roku, karty refleksji i IPR — wszystko w jednym dokumencie warsztatowym z miejscem na notatki.</p>
         <span class="link" data-i18n="wroclaw.p1.tag">Wersja pilotażowa 2025/2026</span>
       </article>
 
@@ -667,8 +683,8 @@
           <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="18" height="14" rx="1.5"/><path d="M3 8h18"/><circle cx="6" cy="6" r="0.6" fill="currentColor"/><circle cx="8" cy="6" r="0.6" fill="currentColor"/><path d="M9 22h6M12 18v4"/></svg>
         </div>
         <div class="pnum" data-i18n="wroclaw.p2.n">02 — Platforma</div>
-        <h3 data-i18n="wroclaw.p2.t">Cyfrowe repozytorium praktyk</h3>
-        <p data-i18n-html="wroclaw.p2.p">Otwarta strona z mapą drogową onboardingu, zasobami i interaktywnym wsparciem dla mentora i nowego nauczyciela. Rozwijana wspólnie z <a href="https://covepolska.pl" target="_blank" rel="noopener">COVE Polska</a>.</p>
+        <h3 data-i18n="wroclaw.p2.t">Mapa drogowa wdrożenia nauczyciela</h3>
+        <p data-i18n-html="wroclaw.p2.p">Otwarta strona prowadząca mentora i nauczyciela przez etapy wdrożenia: od pierwszych decyzji organizacyjnych po refleksję po roku pracy.</p>
         <a class="link" href="https://covepolska.pl" target="_blank" rel="noopener">
           <span>covepolska.pl</span>
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"/></svg>
@@ -680,8 +696,8 @@
           <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="5" width="20" height="14" rx="3"/><path d="M10 9l5 3-5 3z" fill="currentColor" stroke="none"/></svg>
         </div>
         <div class="pnum" data-i18n="wroclaw.p3.n">03 — Wideo</div>
-        <h3 data-i18n="wroclaw.p3.t">Mikro-uczenie tygodniowe</h3>
-        <p data-i18n="wroclaw.p3.p">Krótkie nagrania „co robić w tym tygodniu" — powiązane z podręcznikiem i rytmem roku szkolnego. Pierwsze wideo wprowadzające dostępne jest na YouTube.</p>
+        <h3 data-i18n="wroclaw.p3.t">Mikrouczenie</h3>
+        <p data-i18n="wroclaw.p3.p">Krótkie nagrania pokazujące, co zrobić w danym okresie wdrożenia — powiązane z podręcznikiem i rytmem roku szkolnego. Pierwsze wideo wprowadzające dostępne jest na YouTube.</p>
         <a class="link" href="https://youtu.be/s3SoBvTP3i4" target="_blank" rel="noopener">
           <span data-i18n="wroclaw.p3.cta">Obejrzyj na YouTube</span>
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"/></svg>
@@ -722,7 +738,7 @@
       </div>
       <aside class="video-side">
         <div class="vs-eyebrow" data-i18n="materials.video.eyebrow">Wideo wprowadzające</div>
-        <h3 data-i18n="materials.video.t">Krótkie wprowadzenie do programu onboardingu</h3>
+        <h3 data-i18n="materials.video.t">Krótkie wprowadzenie do programu wdrożenia</h3>
         <p data-i18n="materials.video.p">Pierwsze nagranie z planowanego cyklu mikro-uczenia. Pokazuje genezę programu i strukturę modelu wdrożenia.</p>
         <a href="https://youtu.be/s3SoBvTP3i4" target="_blank" rel="noopener" class="vs-link">
           youtu.be/s3SoBvTP3i4
@@ -742,7 +758,7 @@
         <a class="lc-main" href="https://covepolska.pl" target="_blank" rel="noopener">
           <div class="lc-eyebrow" data-i18n="materials.lc2.e">COVE Polska</div>
           <div class="lc-domain">covepolska.pl <span class="lc-arrow-inline">→</span></div>
-          <p data-i18n="materials.lc2.p">Centrum doskonałości zawodowej, współpracujące przy repozytorium praktyk i platformie cyfrowej.</p>
+          <p data-i18n="materials.lc2.p">Centrum doskonałości zawodowej i punkt wejścia do informacji o działaniach COVE Polska.</p>
         </a>
         <div class="lc-social">
           <a href="https://www.linkedin.com/company/cove-polska" target="_blank" rel="noopener" aria-label="COVE Polska na LinkedIn">
@@ -779,7 +795,7 @@
       <div>
         <h4 data-i18n="footer.contact.h">Kontakt</h4>
         <ul>
-          <li data-i18n="footer.contact.l1">Zespół Szkół Zawodowych nr 5</li>
+          <li><a href="https://zsz5.edupage.org" target="_blank" rel="noopener" data-i18n="footer.contact.l1">Zespół Szkół Zawodowych nr 5</a></li>
           <li data-i18n="footer.contact.l2">ul. Dawida 5, Wrocław</li>
           <li>Maciej Najwer · Wiesław Filipiak</li>
         </ul>
@@ -788,7 +804,9 @@
 
     <div class="fund-strip">
       <div class="fund-logos">
-        <img class="fund-win" src="assets/logo-win4smes-2025.png" alt="WIN4SMEs">
+        <a href="https://win4smes.eu" target="_blank" rel="noopener" aria-label="WIN4SMEs">
+          <img class="fund-win" src="assets/logo-win4smes-2025.png" alt="WIN4SMEs">
+        </a>
         <img class="fund-eu" src="assets/logo-eu.png" alt="Co-funded by the European Union">
       </div>
       <div class="fund-text">
@@ -799,7 +817,6 @@
 
     <div class="colophon">
       <div>© 2026 ZSZ nr 5 Wrocław · WIN4SMEs</div>
-      <div data-i18n="footer.fund_short">Finansowanie: Unia Europejska</div>
     </div>
   </div>
 </footer>
@@ -808,7 +825,6 @@
 /* ============ i18n ============ */
 const I18N = {
   pl: {
-    "nav.brand":"Onboarding nauczycieli · ZSZ nr 5",
     "nav.program":"Program",
     "nav.goals":"Cele",
     "nav.challenges":"Wyzwania",
@@ -840,7 +856,7 @@ const I18N = {
     "goals.c2.l2":"Karty refleksji i model OWP (Obserwacja → Wpływ → Pytanie)",
     "goals.c2.l3":"Obserwacje lekcji jako rozmowa, nie ocena",
     "goals.c3.t":"Mniej stresu, mniej odejść",
-    "goals.c3.p":"Onboarding to inwestycja w dobrostan — nauczyciela i szkoły. Chcemy obniżyć poziom „przeżywania” pierwszych miesięcy i zatrzymać w zawodzie ludzi, których szkoła naprawdę potrzebuje.",
+    "goals.c3.p":"Proces wdrożenia to inwestycja w dobrostan — nauczyciela i szkoły. Chcemy obniżyć poziom „przeżywania” pierwszych miesięcy i zatrzymać w zawodzie ludzi, których szkoła naprawdę potrzebuje.",
     "goals.c3.l1":"Moduł wellbeing wzorowany na praktyce z Finlandii",
     "goals.c3.l2":"Indywidualny Plan Rozwoju (IPR) na semestr",
     "goals.c3.l3":"Ewaluacja programu dwa razy w roku",
@@ -863,22 +879,22 @@ const I18N = {
     "challenges.right.l2":"<b>Brakuje</b> ustrukturyzowanych narzędzi mentora — wsparcie oceniają najniżej sami doświadczeni",
     "challenges.right.l3":"<b>Znika</b> wiedza instytucjonalna wraz z odejściami na emeryturę",
     "challenges.right.l4":"<b>Najważniejsze</b> kompetencje są doświadczalne — nieprzekazywalne regulaminem",
-    "challenges.quote":"Szkoły opierają się na tym, co ludzie akurat wiedzą — nie na tym, co powinni umieć przekazać.",
+    "challenges.quote":"Żeby czuć się bezpiecznie w nowej pracy, potrzebuję wiedzieć, co będzie się działo i do kogo mogę się zwrócić.",
     "challenges.quote_src":"— Wniosek powtarzający się w rozmowach z nauczycielami ZSZ5, 2025",
 
     "wroclaw.eyebrow":"Co robimy we Wrocławiu",
     "wroclaw.title":"Trzy połączone elementy. <span class=\"accent-coral\">Jeden spójny ekosystem.</span>",
-    "wroclaw.sub":"Zespół Szkół Zawodowych nr 5 we Wrocławiu pilotuje od roku szkolnego 2025/2026 trójelementowy model onboardingu — równolegle papierowy, cyfrowy i wideo.",
+    "wroclaw.sub":"Zespół Szkół Zawodowych nr 5 we Wrocławiu pilotuje od roku szkolnego 2025/2026 trójelementowy model wdrożenia — równolegle papierowy, cyfrowy i wideo.",
     "wroclaw.p1.n":"01 — Podręcznik",
     "wroclaw.p1.t":"Workbook mentora i nauczyciela",
-    "wroclaw.p1.p":"Tygodniowe zadania onboardingowe, checklisty, scenariusze 9 spotkań mentoringowych, karty refleksji, IPR — wszystko w jednym dokumencie warsztatowym z miejscem na notatki.",
+    "wroclaw.p1.p":"Zadania na kolejne okresy pracy, checklisty, cykl konkretnych spotkań w pierwszym roku, karty refleksji i IPR — wszystko w jednym dokumencie warsztatowym z miejscem na notatki.",
     "wroclaw.p1.tag":"Wersja pilotażowa 2025/2026",
     "wroclaw.p2.n":"02 — Platforma",
-    "wroclaw.p2.t":"Cyfrowe repozytorium praktyk",
-    "wroclaw.p2.p":"Otwarta strona z mapą drogową onboardingu, zasobami i interaktywnym wsparciem dla mentora i nowego nauczyciela. Rozwijana wspólnie z <a href=\"https://covepolska.pl\" target=\"_blank\" rel=\"noopener\">COVE Polska</a>.",
+    "wroclaw.p2.t":"Mapa drogowa wdrożenia nauczyciela",
+    "wroclaw.p2.p":"Otwarta strona prowadząca mentora i nauczyciela przez etapy wdrożenia: od pierwszych decyzji organizacyjnych po refleksję po roku pracy.",
     "wroclaw.p3.n":"03 — Wideo",
-    "wroclaw.p3.t":"Mikro-uczenie tygodniowe",
-    "wroclaw.p3.p":"Krótkie nagrania „co robić w tym tygodniu” — powiązane z podręcznikiem i rytmem roku szkolnego. Pierwsze wideo wprowadzające dostępne jest na YouTube.",
+    "wroclaw.p3.t":"Mikrouczenie",
+    "wroclaw.p3.p":"Krótkie nagrania pokazujące, co zrobić w danym okresie wdrożenia — powiązane z podręcznikiem i rytmem roku szkolnego. Pierwsze wideo wprowadzające dostępne jest na YouTube.",
     "wroclaw.p3.cta":"Obejrzyj na YouTube",
     "wroclaw.eco_h":"Model 4-komponentowy WIN4SMEs",
     "wroclaw.eco.a_k":"Formalny mentor",
@@ -894,12 +910,12 @@ const I18N = {
     "materials.title":"Zobacz model w działaniu.",
     "materials.sub":"Film wprowadzający i strony programu — w jednym miejscu.",
     "materials.video.eyebrow":"Wideo wprowadzające",
-    "materials.video.t":"Krótkie wprowadzenie do programu onboardingu",
+    "materials.video.t":"Krótkie wprowadzenie do programu wdrożenia",
     "materials.video.p":"Pierwsze nagranie z planowanego cyklu mikro-uczenia. Pokazuje genezę programu i strukturę modelu wdrożenia.",
     "materials.lc1.e":"Program europejski",
     "materials.lc1.p":"Główna strona programu Workplace Innovation for SMEs — kontekst i działania w innych krajach.",
     "materials.lc2.e":"COVE Polska",
-    "materials.lc2.p":"Centrum doskonałości zawodowej, współpracujące przy repozytorium praktyk i platformie cyfrowej.",
+    "materials.lc2.p":"Centrum doskonałości zawodowej i punkt wejścia do informacji o działaniach COVE Polska.",
 
     "footer.about.h":"O programie",
     "footer.about.p":"Program wdrożenia realizowany w Zespole Szkół Zawodowych nr&nbsp;5 we Wrocławiu w&nbsp;ramach europejskiej inicjatywy WIN4SMEs. Celem jest stworzenie transferowalnego modelu wdrażania nauczycieli — z myślą o innych szkołach w Polsce i w Europie.",
@@ -909,12 +925,10 @@ const I18N = {
     "footer.contact.l1":"Zespół Szkół Zawodowych nr 5",
     "footer.contact.l2":"ul. Dawida 5, Wrocław",
     "footer.fund":"Program wdrożenia współfinansowany przez Unię Europejską w ramach inicjatywy WIN4SMEs (Workplace Innovation for SMEs).",
-    "footer.disclaimer":"Sfinansowane przez Unię Europejską. Wyrażone poglądy i opinie są jednak wyłącznie poglądami autorów i niekoniecznie odzwierciedlają poglądów Unii Europejskiej ani Europejskiej Agencji Wykonawczej ds. Edukacji i Kultury (EACEA). Ani Unia Europejska, ani EACEA nie ponoszą za nie odpowiedzialności.",
-    "footer.fund_short":"Finansowanie: Unia Europejska"
+    "footer.disclaimer":"Sfinansowane przez Unię Europejską. Wyrażone poglądy i opinie są jednak wyłącznie poglądami autorów i niekoniecznie odzwierciedlają poglądów Unii Europejskiej ani Europejskiej Agencji Wykonawczej ds. Edukacji i Kultury (EACEA). Ani Unia Europejska, ani EACEA nie ponoszą za nie odpowiedzialności."
   },
 
   en: {
-    "nav.brand":"Teacher Onboarding · ZSZ no. 5",
     "nav.program":"Programme",
     "nav.goals":"Goals",
     "nav.challenges":"Challenges",
@@ -969,7 +983,7 @@ const I18N = {
     "challenges.right.l2":"<b>What's missing</b> are structured mentor tools — experienced teachers themselves rate support the lowest",
     "challenges.right.l3":"<b>What's disappearing</b> is institutional knowledge, with each retirement",
     "challenges.right.l4":"<b>The most important</b> competences are experiential — not transferable through regulations",
-    "challenges.quote":"Schools rely on what people happen to know — not on what they should be able to pass on.",
+    "challenges.quote":"To feel safe in a new job, I need to know what will happen next and who I can turn to.",
     "challenges.quote_src":"— Recurring finding from conversations with ZSZ5 teachers, 2025",
 
     "wroclaw.eyebrow":"What we do in Wrocław",
@@ -977,14 +991,14 @@ const I18N = {
     "wroclaw.sub":"Since the 2025/2026 school year, Vocational School Complex no. 5 in Wrocław has been piloting a three-part onboarding model — print, digital and video in parallel.",
     "wroclaw.p1.n":"01 — Workbook",
     "wroclaw.p1.t":"Mentor & teacher workbook",
-    "wroclaw.p1.p":"Weekly onboarding tasks, checklists, scripts for 9 mentoring meetings, reflection cards and an IDP — all in one workshop-style document with room for notes.",
+    "wroclaw.p1.p":"Tasks for successive periods of work, checklists, a cycle of concrete meetings in the first year, reflection cards and an IDP — all in one workshop-style document with room for notes.",
     "wroclaw.p1.tag":"Pilot version 2025/2026",
     "wroclaw.p2.n":"02 — Platform",
-    "wroclaw.p2.t":"Digital practice repository",
-    "wroclaw.p2.p":"An open site with an onboarding roadmap, resources and interactive guidance for the mentor and the new teacher. Developed together with <a href=\"https://covepolska.pl\" target=\"_blank\" rel=\"noopener\">COVE Polska</a>.",
+    "wroclaw.p2.t":"Teacher induction roadmap",
+    "wroclaw.p2.p":"An open site guiding the mentor and the teacher through the stages of induction: from the first organisational decisions to reflection after the first year of work.",
     "wroclaw.p3.n":"03 — Video",
-    "wroclaw.p3.t":"Weekly micro-learning",
-    "wroclaw.p3.p":"Short “what to do this week” videos — tied to the workbook and to the rhythm of the school year. The first introductory video is on YouTube.",
+    "wroclaw.p3.t":"Micro-learning",
+    "wroclaw.p3.p":"Short videos showing what to do in a given period of induction — tied to the workbook and to the rhythm of the school year. The first introductory video is on YouTube.",
     "wroclaw.p3.cta":"Watch on YouTube",
     "wroclaw.eco_h":"WIN4SMEs 4-component model",
     "wroclaw.eco.a_k":"Formal mentor",
@@ -1005,7 +1019,7 @@ const I18N = {
     "materials.lc1.e":"European programme",
     "materials.lc1.p":"The main site of the Workplace Innovation for SMEs programme — context and activities across countries.",
     "materials.lc2.e":"COVE Polska",
-    "materials.lc2.p":"Centre of Vocational Excellence, working with us on the practice repository and the digital platform.",
+    "materials.lc2.p":"Centre of Vocational Excellence and entry point for information about COVE Polska activities.",
 
     "footer.about.h":"About the programme",
     "footer.about.p":"An implementation programme run at Vocational School Complex no.&nbsp;5 in Wrocław as part of the European WIN4SMEs initiative. The goal is a transferable teacher-onboarding model — designed with other schools across Poland and Europe in mind.",
@@ -1015,12 +1029,10 @@ const I18N = {
     "footer.contact.l1":"Vocational School Complex no. 5",
     "footer.contact.l2":"5 Dawida Street, Wrocław",
     "footer.fund":"Implementation programme co-funded by the European Union under the WIN4SMEs initiative (Workplace Innovation for SMEs).",
-    "footer.disclaimer":"Funded by the European Union. Views and opinions expressed are however those of the author(s) only and do not necessarily reflect those of the European Union or the European Education and Culture Executive Agency (EACEA). Neither the European Union nor EACEA can be held responsible for them.",
-    "footer.fund_short":"Funding: European Union"
+    "footer.disclaimer":"Funded by the European Union. Views and opinions expressed are however those of the author(s) only and do not necessarily reflect those of the European Union or the European Education and Culture Executive Agency (EACEA). Neither the European Union nor EACEA can be held responsible for them."
   },
 
   de: {
-    "nav.brand":"Lehrer-Onboarding · ZSZ Nr. 5",
     "nav.program":"Programm",
     "nav.goals":"Ziele",
     "nav.challenges":"Herausforderungen",
@@ -1075,7 +1087,7 @@ const I18N = {
     "challenges.right.l2":"<b>Es fehlen</b> strukturierte Mentoring-Werkzeuge — Erfahrene bewerten die Unterstützung selbst am niedrigsten",
     "challenges.right.l3":"<b>Es verschwindet</b> Institutionswissen mit jeder Verrentung",
     "challenges.right.l4":"<b>Die wichtigsten</b> Kompetenzen sind erfahrungsbasiert — nicht durch Vorschriften vermittelbar",
-    "challenges.quote":"Schulen verlassen sich auf das, was Einzelne zufällig wissen — nicht auf das, was sie weitergeben können sollten.",
+    "challenges.quote":"Um mich in einer neuen Arbeit sicher zu fühlen, muss ich wissen, was als Nächstes passiert und an wen ich mich wenden kann.",
     "challenges.quote_src":"— Wiederkehrende Aussage aus Gesprächen mit ZSZ5-Lehrkräften, 2025",
 
     "wroclaw.eyebrow":"Was wir in Wrocław tun",
@@ -1083,14 +1095,14 @@ const I18N = {
     "wroclaw.sub":"Das Berufsschulzentrum Nr. 5 in Wrocław pilotiert seit dem Schuljahr 2025/2026 ein dreiteiliges Onboarding-Modell — gedruckt, digital und Video parallel.",
     "wroclaw.p1.n":"01 — Handbuch",
     "wroclaw.p1.t":"Workbook für Mentor:in und Lehrkraft",
-    "wroclaw.p1.p":"Wöchentliche Onboarding-Aufgaben, Checklisten, Drehbücher für 9 Mentoring-Treffen, Reflexionskarten, IEP — alles in einem Arbeitsdokument mit Platz für Notizen.",
+    "wroclaw.p1.p":"Aufgaben für aufeinanderfolgende Arbeitsphasen, Checklisten, ein Zyklus konkreter Treffen im ersten Jahr, Reflexionskarten und IEP — alles in einem Arbeitsdokument mit Platz für Notizen.",
     "wroclaw.p1.tag":"Pilotfassung 2025/2026",
     "wroclaw.p2.n":"02 — Plattform",
-    "wroclaw.p2.t":"Digitales Praxis-Repositorium",
-    "wroclaw.p2.p":"Offene Seite mit Onboarding-Roadmap, Ressourcen und interaktiver Begleitung für Mentor:in und neue Lehrkraft. Entwickelt zusammen mit <a href=\"https://covepolska.pl\" target=\"_blank\" rel=\"noopener\">COVE Polska</a>.",
+    "wroclaw.p2.t":"Roadmap zur Einarbeitung von Lehrkräften",
+    "wroclaw.p2.p":"Offene Seite, die Mentor:in und Lehrkraft durch die Phasen der Einarbeitung führt: von den ersten organisatorischen Entscheidungen bis zur Reflexion nach dem ersten Arbeitsjahr.",
     "wroclaw.p3.n":"03 — Video",
-    "wroclaw.p3.t":"Wöchentliches Mikro-Lernen",
-    "wroclaw.p3.p":"Kurze Clips „Das ist diese Woche dran“ — verknüpft mit dem Handbuch und dem Rhythmus des Schuljahres. Das erste Einführungsvideo ist auf YouTube verfügbar.",
+    "wroclaw.p3.t":"Mikrolernen",
+    "wroclaw.p3.p":"Kurze Clips, die zeigen, was in der jeweiligen Phase der Einarbeitung zu tun ist — verknüpft mit dem Handbuch und dem Rhythmus des Schuljahres. Das erste Einführungsvideo ist auf YouTube verfügbar.",
     "wroclaw.p3.cta":"Auf YouTube ansehen",
     "wroclaw.eco_h":"WIN4SMEs 4-Komponenten-Modell",
     "wroclaw.eco.a_k":"Formale Mentor:in",
@@ -1111,7 +1123,7 @@ const I18N = {
     "materials.lc1.e":"Europäisches Programm",
     "materials.lc1.p":"Hauptseite des Programms Workplace Innovation for SMEs — Kontext und Aktivitäten in anderen Ländern.",
     "materials.lc2.e":"COVE Polska",
-    "materials.lc2.p":"Kompetenzzentrum für berufliche Bildung, kooperiert beim Praxisrepositorium und der digitalen Plattform.",
+    "materials.lc2.p":"Kompetenzzentrum für berufliche Bildung und Einstiegspunkt zu Informationen über die Aktivitäten von COVE Polska.",
 
     "footer.about.h":"Über das Programm",
     "footer.about.p":"Umsetzungsprogramm am Berufsschulzentrum Nr.&nbsp;5 in Wrocław im Rahmen der europäischen Initiative WIN4SMEs. Ziel ist ein übertragbares Modell der Lehrkräfte-Einarbeitung — mit Blick auf andere Schulen in Polen und Europa.",
@@ -1121,8 +1133,7 @@ const I18N = {
     "footer.contact.l1":"Berufsschulzentrum Nr. 5",
     "footer.contact.l2":"ul. Dawida 5, Wrocław",
     "footer.fund":"Umsetzungsprogramm kofinanziert durch die Europäische Union im Rahmen der Initiative WIN4SMEs (Workplace Innovation for SMEs).",
-    "footer.disclaimer":"Finanziert von der Europäischen Union. Die geäußerten Ansichten und Meinungen sind jedoch ausschließlich die der Autor:innen und spiegeln nicht unbedingt die der Europäischen Union oder der Europäischen Exekutivagentur für Bildung und Kultur (EACEA) wider. Weder die Europäische Union noch die EACEA können dafür verantwortlich gemacht werden.",
-    "footer.fund_short":"Finanzierung: Europäische Union"
+    "footer.disclaimer":"Finanziert von der Europäischen Union. Die geäußerten Ansichten und Meinungen sind jedoch ausschließlich die der Autor:innen und spiegeln nicht unbedingt die der Europäischen Union oder der Europäischen Exekutivagentur für Bildung und Kultur (EACEA) wider. Weder die Europäische Union noch die EACEA können dafür verantwortlich gemacht werden."
   }
 };
 
