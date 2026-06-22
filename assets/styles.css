@@ -161,8 +161,8 @@ a:hover {
   object-fit: contain;
 }
 
-.logo-line .eu-logo {
-  max-height: 48px;
+.logo-line img[src*="win4smes-logo.png"] {
+  max-height: 64px;
 }
 
 .nav-row {
@@ -878,8 +878,8 @@ tr:last-child td {
   object-fit: contain;
 }
 
-.print-form-logos .eu-logo {
-  max-height: 54px;
+.print-form-logos img[src*="win4smes-logo.png"] {
+  max-height: 60px;
 }
 
 .form-section {
@@ -1139,6 +1139,10 @@ tr:last-child td {
   width: auto;
 }
 
+.footer-logos img[src*="win4smes-logo.png"] {
+  max-height: 58px;
+}
+
 @media (max-width: 900px) {
   .brand-row,
   .nav-row,
@@ -1271,8 +1275,8 @@ tr:last-child td {
     max-height: 36px;
   }
 
-  .print-form-logos .eu-logo {
-    max-height: 44px;
+  .print-form-logos img[src*="win4smes-logo.png"] {
+    max-height: 48px;
   }
 
   .form-field input,
