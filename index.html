@@ -1,1175 +1,190 @@
 <!doctype html>
 <html lang="pl">
 <head>
-<meta charset="utf-8">
-<title>Wdrożenie nauczycieli — ZSZ nr 5 Wrocław · WIN4SMEs</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%2313212e'/%3E%3Ccircle cx='18' cy='18' r='5' fill='%23d8694a'/%3E%3Cpath d='M18 42h28' stroke='%23f4efe6' stroke-width='6' stroke-linecap='round'/%3E%3Cpath d='M18 30h20' stroke='%23f4efe6' stroke-width='6' stroke-linecap='round'/%3E%3C/svg%3E">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --ink:#13212e;
-    --ink-2:#3a4b5c;
-    --ink-3:#5b6c7e;
-    --paper:#f4efe6;
-    --paper-2:#ece5d6;
-    --paper-3:#e3dac6;
-    --coral:#d8694a;
-    --teal:#2f7a78;
-    --line:rgba(19,33,46,0.14);
-    --line-strong:rgba(19,33,46,0.28);
-  }
-  *{box-sizing:border-box;margin:0;padding:0}
-  html{scroll-behavior:smooth;}
-  html,body{max-width:100%;overflow-x:hidden;}
-  body{
-    background:var(--paper);
-    color:var(--ink);
-    font-family:'Inter',sans-serif;
-    font-size:17px;
-    line-height:1.55;
-    -webkit-font-smoothing:antialiased;
-  }
-  img{max-width:100%;display:block;}
-  a{color:var(--teal);text-decoration:none;border-bottom:1px solid currentColor;}
-  a:hover{color:var(--coral);}
-  ::selection{background:var(--coral);color:var(--paper);}
-
-  .wrap{width:100%;max-width:1240px;margin:0 auto;padding:0 40px;}
-
-  /* ============ NAV ============ */
-  .topnav{
-    position:sticky;top:0;z-index:50;
-    background:rgba(244,239,230,0.92);
-    backdrop-filter:saturate(140%) blur(8px);
-    border-bottom:1px solid var(--line);
-  }
-  .topnav .row{
-    display:flex;align-items:center;justify-content:space-between;
-    gap:24px;height:64px;
-  }
-  .topnav .brand{
-    display:flex;align-items:center;gap:14px;
-    font-family:'JetBrains Mono',monospace;font-size:13px;
-    letter-spacing:0.14em;text-transform:uppercase;color:var(--ink);
-    border:0;
-  }
-  .topnav .brand .dot{width:9px;height:9px;background:var(--coral);border-radius:50%;display:inline-block;}
-  .topnav .brand-logos{display:flex;align-items:center;gap:16px;}
-  .topnav .brand-logos img{height:34px;width:auto;max-width:138px;object-fit:contain;}
-  .topnav .brand-logos img:first-child{height:44px;}
-  .topnav .right{display:flex;align-items:center;gap:24px;}
-  .topnav nav{display:flex;gap:28px;}
-  .topnav nav a{
-    font-family:'JetBrains Mono',monospace;font-size:12px;
-    letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-2);
-    border:0;padding:6px 0;
-  }
-  .topnav nav a:hover{color:var(--coral);}
-  .lang-switch{
-    display:flex;align-items:stretch;border:1px solid var(--line-strong);
-    overflow:hidden;
-  }
-  .lang-switch button{
-    background:transparent;border:0;
-    padding:6px 10px;
-    font-family:'JetBrains Mono',monospace;font-size:11px;
-    letter-spacing:0.12em;color:var(--ink-2);cursor:pointer;
-    border-right:1px solid var(--line);
-    transition:background 0.15s,color 0.15s;
-  }
-  .lang-switch button:last-child{border-right:0;}
-  .lang-switch button:hover{color:var(--ink);}
-  .lang-switch button.active{background:var(--ink);color:var(--paper);}
-  @media (max-width:820px){
-    .wrap{padding:0 24px;}
-    .topnav nav{display:none;}
-    .topnav .row{gap:12px;}
-    .topnav .right{gap:8px;flex:0 0 auto;}
-    .topnav .brand-logos{gap:10px;}
-    .topnav .brand-logos img{height:28px;max-width:112px;}
-    .topnav .brand-logos img:first-child{height:36px;}
-    .hero h1{max-width:100%;}
-    .hero .lede{max-width:100%;}
-    .hero .meta{
-      display:grid;
-      grid-template-columns:repeat(2,minmax(0,1fr));
-      gap:28px 20px;
-    }
-    .hero .meta > div{min-width:0;overflow-wrap:anywhere;}
-  }
-  @media (max-width:520px){
-    .wrap{padding:0 24px;}
-    .hero{padding-top:64px;}
-    .hero .actions{display:grid;grid-template-columns:1fr;}
-    .btn{width:100%;justify-content:center;}
-    .hero .meta{grid-template-columns:1fr 1fr;gap:24px 18px;}
-    .lang-switch button{padding:6px 8px;}
-  }
-
-  /* ============ HERO ============ */
-  .hero{
-    background:linear-gradient(180deg,#0f1f2c 0%,#13212e 60%,#1a2c3b 100%);
-    color:var(--paper);
-    padding:80px 0 0;
-    position:relative;
-    overflow:hidden;
-  }
-  .hero .wrap{position:relative;}
-  .eyebrow{
-    font-family:'JetBrains Mono',monospace;
-    font-size:13px;letter-spacing:0.16em;text-transform:uppercase;
-    color:#e0a37e;font-weight:500;
-    display:inline-flex;align-items:center;gap:14px;
-  }
-  .eyebrow .num{color:rgba(244,239,230,0.45);}
-  .hero h1{
-    font-family:'Fraunces',serif;font-weight:400;
-    font-size:clamp(40px,6.2vw,82px);line-height:1.02;letter-spacing:-0.025em;
-    color:var(--paper);text-wrap:balance;margin-top:28px;
-    max-width:18ch;
-  }
-  .hero .lede{
-    margin-top:28px;max-width:62ch;
-    font-size:clamp(17px,1.6vw,22px);line-height:1.5;
-    color:rgba(244,239,230,0.78);
-    overflow-wrap:anywhere;
-  }
-  .hero .lede b{color:var(--paper);font-weight:500;}
-  .hero .meta{
-    display:flex;gap:48px;flex-wrap:wrap;
-    margin-top:48px;padding-top:28px;
-    border-top:1px solid rgba(244,239,230,0.14);
-    font-family:'JetBrains Mono',monospace;font-size:13px;
-    color:rgba(244,239,230,0.55);
-  }
-  .hero .meta b{color:var(--paper);font-weight:500;letter-spacing:0.06em;text-transform:uppercase;display:block;margin-bottom:6px;}
-  .hero .actions{
-    display:flex;gap:14px;flex-wrap:wrap;margin-top:34px;
-  }
-  .btn{
-    display:inline-flex;align-items:center;gap:10px;
-    padding:14px 22px;
-    font-family:'JetBrains Mono',monospace;font-size:13px;
-    letter-spacing:0.12em;text-transform:uppercase;
-    border:1px solid currentColor;
-    background:transparent;color:var(--paper);
-    transition:background 0.2s, color 0.2s;
-    cursor:pointer;
-  }
-  .btn:hover{background:var(--paper);color:var(--ink);}
-  .btn.primary{background:var(--coral);border-color:var(--coral);color:var(--paper);}
-  .btn.primary:hover{background:#c25636;border-color:#c25636;color:var(--paper);}
-  .btn svg{flex:0 0 auto;}
-
-  .hero .logos{
-    display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:48px;
-    background:var(--paper);
-    margin:64px 0 0;padding:28px 40px;
-  }
-  .hero .logos a{border:0;}
-  .hero .logos img{height:56px;width:auto;}
-  .hero .logos .lg-win{height:80px;}
-  .hero .logos .lg-eu{height:60px;}
-  @media (max-width:760px){
-    .hero .logos{gap:32px;padding:24px;justify-content:center;}
-    .hero .logos img{max-width:100%;height:auto;max-height:58px;}
-    .hero .logos .lg-win{max-height:72px;}
-    .hero .logos .lg-eu{max-height:54px;}
-  }
-
-  /* ============ SECTIONS ============ */
-  section.block{padding:96px 0;border-bottom:1px solid var(--line);}
-  section.block:last-of-type{border-bottom:none;}
-  .sec-head{display:flex;flex-direction:column;gap:18px;margin-bottom:48px;max-width:880px;}
-  .sec-head .eyebrow{color:var(--coral);}
-  .sec-head .eyebrow .num{color:rgba(19,33,46,0.4);}
-  .sec-head h2{
-    font-family:'Fraunces',serif;font-weight:500;
-    font-size:clamp(32px,4vw,52px);line-height:1.08;letter-spacing:-0.02em;
-    color:var(--ink);text-wrap:balance;
-  }
-  .sec-head .sub{
-    font-family:'Fraunces',serif;font-weight:400;font-style:italic;
-    font-size:clamp(18px,1.8vw,24px);line-height:1.35;color:var(--ink-2);
-    text-wrap:balance;
-  }
-  .hairline{height:1px;background:var(--line);margin:0 0 32px;}
-
-  .accent-coral{color:var(--coral);}
-  .accent-teal{color:var(--teal);}
-
-  /* ===== CELE ===== */
-  .goals{
-    display:grid;grid-template-columns:repeat(3,1fr);gap:24px;
-  }
-  .goal{
-    background:#fff;border:1px solid var(--line);
-    padding:36px 32px;display:flex;flex-direction:column;gap:18px;
-  }
-  .goal.teal{background:rgba(47,122,120,0.05);border-color:rgba(47,122,120,0.25);}
-  .goal.coral{background:rgba(216,105,74,0.05);border-color:rgba(216,105,74,0.25);}
-  .goal .gn{
-    font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.14em;
-    text-transform:uppercase;color:var(--coral);
-  }
-  .goal.teal .gn{color:var(--teal);}
-  .goal h3{
-    font-family:'Fraunces',serif;font-weight:500;font-size:26px;line-height:1.15;
-    letter-spacing:-0.01em;color:var(--ink);
-  }
-  .goal p{font-size:15px;line-height:1.55;color:var(--ink-2);}
-  .goal ul.check{list-style:none;display:flex;flex-direction:column;gap:8px;margin-top:auto;padding-top:18px;border-top:1px solid var(--line);}
-  .goal ul.check li{
-    font-size:14px;line-height:1.45;color:var(--ink);padding-left:22px;position:relative;
-  }
-  .goal ul.check li::before{
-    content:"";position:absolute;left:0;top:0.55em;width:12px;height:2px;background:var(--coral);
-  }
-  .goal.teal ul.check li::before{background:var(--teal);}
-  @media (max-width:900px){.goals{grid-template-columns:1fr;}}
-
-  /* ===== STATS ===== */
-  .stats{
-    display:grid;grid-template-columns:repeat(3,1fr);gap:48px;
-  }
-  .stat{display:flex;flex-direction:column;gap:8px;}
-  .stat .n{
-    font-family:'Fraunces',serif;font-weight:400;font-size:clamp(72px,9vw,128px);
-    line-height:0.9;letter-spacing:-0.04em;color:var(--coral);
-  }
-  .stat .n.teal{color:var(--teal);}
-  .stat .l{
-    font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:0.12em;
-    text-transform:uppercase;color:var(--ink);font-weight:500;margin-top:8px;
-  }
-  .stat .d{font-size:15px;line-height:1.5;color:var(--ink-2);max-width:32ch;}
-  @media (max-width:760px){.stats{grid-template-columns:1fr;gap:32px;}}
-
-  /* ===== CHALLENGES ===== */
-  .challenges{display:grid;grid-template-columns:1fr 1fr;gap:64px;}
-  .ch-eyebrow{
-    font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:0.14em;
-    text-transform:uppercase;margin-bottom:18px;font-weight:500;
-  }
-  .ch-list{list-style:none;display:flex;flex-direction:column;}
-  .ch-list li{
-    font-size:16px;line-height:1.5;color:var(--ink);
-    padding:14px 0 14px 32px;
-    border-top:1px solid var(--line);position:relative;
-  }
-  .ch-list li:last-child{border-bottom:1px solid var(--line);}
-  .ch-list li b{font-weight:600;color:var(--ink);}
-  .ch-list li::before{
-    content:"";position:absolute;left:0;top:22px;width:18px;height:2px;background:var(--coral);
-  }
-  .ch-list.teal li::before{background:var(--teal);}
-  @media (max-width:760px){.challenges{grid-template-columns:1fr;gap:32px;}}
-
-  .quote-card{
-    margin-top:56px;
-    background:var(--ink);color:var(--paper);
-    padding:48px 56px;
-    display:flex;flex-direction:column;gap:14px;position:relative;
-  }
-  .quote-card .qm{
-    font-family:'Fraunces',serif;font-size:80px;line-height:0.5;color:var(--coral);
-    position:absolute;top:32px;right:48px;opacity:0.6;
-  }
-  .quote-card .qt{
-    font-family:'Fraunces',serif;font-style:italic;font-weight:400;
-    font-size:clamp(22px,2.4vw,30px);line-height:1.3;color:var(--paper);
-    max-width:60ch;text-wrap:balance;
-  }
-  .quote-card .qs{
-    font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:0.1em;
-    text-transform:uppercase;color:rgba(244,239,230,0.55);margin-top:8px;
-  }
-
-  /* ===== PILLARS ===== */
-  .pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
-  .pillar{
-    background:#fff;border:1px solid var(--line);
-    padding:36px 32px;
-    display:flex;flex-direction:column;gap:16px;
-    min-height:380px;
-  }
-  .pillar.teal{background:rgba(47,122,120,0.06);border-color:rgba(47,122,120,0.28);}
-  .pillar.coral{background:rgba(216,105,74,0.06);border-color:rgba(216,105,74,0.28);}
-  .pillar .ic{
-    width:60px;height:60px;display:flex;align-items:center;justify-content:center;
-    background:var(--paper-2);border:1px solid var(--line);color:var(--ink);
-  }
-  .pillar.teal .ic{background:rgba(47,122,120,0.12);border-color:rgba(47,122,120,0.3);color:var(--teal);}
-  .pillar.coral .ic{background:rgba(216,105,74,0.12);border-color:rgba(216,105,74,0.3);color:var(--coral);}
-  .pillar .pnum{
-    font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.14em;
-    text-transform:uppercase;color:var(--coral);
-  }
-  .pillar.teal .pnum{color:var(--teal);}
-  .pillar h3{
-    font-family:'Fraunces',serif;font-weight:500;font-size:26px;line-height:1.15;
-    letter-spacing:-0.01em;color:var(--ink);
-  }
-  .pillar p{font-size:15px;line-height:1.55;color:var(--ink-2);}
-  .pillar .link{
-    margin-top:auto;padding-top:18px;border-top:1px solid var(--line);
-    display:inline-flex;align-items:center;gap:10px;
-    font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:0.12em;
-    text-transform:uppercase;color:var(--teal);border-bottom:0;
-  }
-  .pillar.coral .link{color:var(--coral);}
-  .pillar .link:hover{color:var(--ink);}
-  @media (max-width:900px){.pillars{grid-template-columns:1fr;}}
-
-  /* ===== ECOSYSTEM TABLE ===== */
-  .ecosystem{margin-top:64px;border-top:1px solid var(--line);padding-top:40px;}
-  .eco-eyebrow{
-    font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:0.14em;
-    text-transform:uppercase;color:var(--ink-2);margin-bottom:18px;
-  }
-  .eco-rows{display:flex;flex-direction:column;}
-  .eco-row{
-    display:grid;grid-template-columns:60px 240px 1fr;gap:24px;align-items:baseline;
-    padding:16px 0;border-bottom:1px solid var(--line);
-  }
-  .eco-row:last-child{border-bottom:none;}
-  .eco-n{
-    font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.12em;
-    color:var(--coral);
-  }
-  .eco-k{
-    font-family:'Fraunces',serif;font-weight:500;font-size:20px;color:var(--ink);
-    letter-spacing:-0.01em;
-  }
-  .eco-v{font-size:15px;line-height:1.5;color:var(--ink-2);}
-  @media (max-width:760px){
-    .eco-row{grid-template-columns:1fr;gap:6px;}
-  }
-
-  /* ===== MATERIAŁY ===== */
-  .video-grid{
-    display:grid;grid-template-columns:1.5fr 1fr;gap:32px;margin-bottom:48px;
-  }
-  .video-wrap{
-    position:relative;aspect-ratio:16/9;background:#000;
-    border:1px solid rgba(244,239,230,0.18);overflow:hidden;
-  }
-  .video-wrap iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
-  .video-side{
-    display:flex;flex-direction:column;gap:14px;justify-content:center;
-    padding:24px 0;
-  }
-  .vs-eyebrow{
-    font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:0.14em;
-    text-transform:uppercase;color:#e0a37e;
-  }
-  .video-side h3{
-    font-family:'Fraunces',serif;font-weight:500;font-size:28px;line-height:1.15;
-    letter-spacing:-0.01em;color:var(--paper);text-wrap:balance;
-  }
-  .video-side p{font-size:16px;line-height:1.5;color:rgba(244,239,230,0.7);}
-  .vs-link{
-    display:inline-flex;align-items:center;gap:10px;margin-top:8px;
-    font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;
-    color:#e0a37e;border-bottom-color:rgba(224,163,126,0.4);width:max-content;
-  }
-  .vs-link:hover{color:var(--paper);border-bottom-color:var(--paper);}
-  @media (max-width:900px){.video-grid{grid-template-columns:1fr;}}
-
-  .link-cards{
-    display:grid;grid-template-columns:repeat(2,1fr);gap:16px;
-  }
-  .lc, .lc-multi{
-    background:rgba(244,239,230,0.04);
-    border:1px solid rgba(244,239,230,0.16);
-    padding:24px;
-    display:flex;flex-direction:column;gap:10px;
-    color:var(--paper);
-    transition:background 0.2s, border-color 0.2s, transform 0.2s;
-    position:relative;
-  }
-  a.lc{text-decoration:none;border-bottom:0;}
-  .lc:hover, .lc-multi:hover{
-    background:rgba(244,239,230,0.08);
-    border-color:rgba(216,105,74,0.5);
-    transform:translateY(-2px);
-  }
-  .lc-main{
-    display:flex;flex-direction:column;gap:10px;
-    color:var(--paper);border-bottom:0;text-decoration:none;
-    flex:1;
-  }
-  .lc-arrow-inline{
-    color:#e0a37e;margin-left:6px;font-family:'JetBrains Mono',monospace;
-  }
-  .lc-social{
-    display:flex;gap:18px;margin-top:14px;padding-top:14px;
-    border-top:1px solid rgba(244,239,230,0.14);
-  }
-  .lc-social a{
-    display:inline-flex;align-items:center;gap:6px;
-    font-family:'JetBrains Mono',monospace;font-size:11px;
-    letter-spacing:0.12em;text-transform:uppercase;
-    color:rgba(244,239,230,0.78);border-bottom:0;
-  }
-  .lc-social a:hover{color:#e0a37e;}
-  .lc-eyebrow{
-    font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.14em;
-    text-transform:uppercase;color:rgba(244,239,230,0.5);
-  }
-  .lc-domain{
-    font-family:'Fraunces',serif;font-weight:500;font-size:22px;line-height:1.15;
-    letter-spacing:-0.01em;color:var(--paper);
-  }
-  .lc p, .lc-main p{font-size:14px;line-height:1.45;color:rgba(244,239,230,0.7);}
-  .lc-arrow{
-    font-family:'JetBrains Mono',monospace;font-size:24px;color:#e0a37e;
-    margin-top:auto;padding-top:14px;
-  }
-  @media (max-width:900px){.link-cards{grid-template-columns:1fr;}}
-
-  /* ============ FOOTER ============ */
-  footer{
-    background:var(--ink);color:var(--paper);
-    padding:72px 0 36px;
-  }
-  footer .grid{
-    display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:48px;
-  }
-  footer h4{
-    font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:0.14em;
-    text-transform:uppercase;color:rgba(244,239,230,0.55);margin-bottom:18px;font-weight:500;
-  }
-  footer p, footer li{font-size:15px;line-height:1.55;color:rgba(244,239,230,0.78);}
-  footer ul{list-style:none;display:flex;flex-direction:column;gap:8px;}
-  footer a{color:rgba(244,239,230,0.92);border-bottom-color:rgba(244,239,230,0.3);}
-  footer a:hover{color:#e0a37e;border-bottom-color:#e0a37e;}
-  footer .colophon{
-    margin-top:56px;padding-top:24px;
-    border-top:1px solid rgba(244,239,230,0.14);
-    display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;
-    font-family:'JetBrains Mono',monospace;font-size:12px;
-    letter-spacing:0.08em;color:rgba(244,239,230,0.55);
-  }
-  footer .fund-strip{
-    display:flex;align-items:center;gap:36px;flex-wrap:wrap;
-    margin-top:48px;padding:28px 32px;
-    background:var(--paper);
-    color:var(--ink);
-    border:1px solid rgba(244,239,230,0.08);
-  }
-  footer .fund-strip .fund-logos{
-    display:flex;align-items:center;gap:36px;flex-shrink:0;
-  }
-  footer .fund-strip .fund-logos a{border:0;}
-  footer .fund-strip .fund-win{height:88px;width:auto;}
-  footer .fund-strip .fund-eu{height:64px;width:auto;}
-  footer .fund-strip .fund-text{flex:1;min-width:280px;}
-  footer .fund-strip .fund-tag{
-    font-size:14px;line-height:1.5;color:var(--ink);font-weight:500;
-  }
-  footer .fund-strip .fund-disclaimer{
-    font-size:11px;line-height:1.5;color:var(--ink-2);
-    margin-top:8px;
-  }
-  @media (max-width:760px){
-    footer .grid{grid-template-columns:1fr;}
-    footer .fund-strip{flex-direction:column;align-items:flex-start;padding:24px;}
-    footer .fund-strip .fund-logos{gap:24px;flex-wrap:wrap;}
-    footer .fund-strip .fund-win{height:64px;}
-    footer .fund-strip .fund-eu{height:48px;}
-  }
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Wdrożenie nauczycieli | WIN4SMEs / COVE Polska</title>
+  <meta name="description" content="Polska strona modułów Mentora, Dyrekcji i Nauczyciela w programie wdrożenia nauczycieli WIN4SMEs / COVE Polska.">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/styles.css?v=20260612-header-home-link">
 </head>
 <body>
-
-<!-- ===== NAV ===== -->
-<header class="topnav">
-  <div class="wrap row">
-    <a href="#program" class="brand" aria-label="Strona główna">
-      <span class="dot"></span>
-      <span class="brand-logos" aria-hidden="true">
-        <img src="assets/logo-win4smes-2025.png" alt="">
-        <img src="assets/logo-covepolska.png" alt="">
-      </span>
-    </a>
-    <div class="right">
-      <nav>
-        <a href="#program" data-i18n="nav.program">Program</a>
-        <a href="#cele" data-i18n="nav.goals">Cele</a>
-        <a href="#wyzwania" data-i18n="nav.challenges">Wyzwania</a>
-        <a href="#wroclaw" data-i18n="nav.wroclaw">Wrocław</a>
-        <a href="#materialy" data-i18n="nav.materials">Materiały</a>
+  <a class="skip-link" href="#main">Przejdź do treści</a>
+  <header class="site-header">
+    <div class="top-strip">
+      <div class="brand-row">
+        <a class="project-mark" href="index.html" aria-label="Wiedza, która łączy - strona główna" title="Wróć na stronę główną"><img src="assets/logos/mentoring-logo.png" alt="Mentoring nauczycieli"><div class="project-title">
+            <strong>Wdrożenie nauczycieli</strong>
+            <span>WP3 A4 HR Management Program | COVE Polska</span>
+          </div></a>
+        <div class="logo-line" aria-label="Logotypy projektu"><img src="assets/logos/win4smes-logo.png" alt="WIN4SMEs"><img src="assets/logos/cove-polska-logo.png" alt="COVE Polska">
+          <img src="assets/logos/zsz5-logo.png" alt="Zespół Szkół Zawodowych nr 5 we Wrocławiu">
+          <img class="eu-logo" src="assets/logos/ue-dofinansowanie.png" alt="Dofinansowane przez Unię Europejską">
+        </div>
+      </div>
+    </div>
+    <div class="nav-row">
+      <button class="menu-button" type="button" data-menu-button aria-expanded="false" aria-controls="site-nav">Menu</button>
+      <nav class="site-nav" id="site-nav" data-site-nav aria-label="Nawigacja główna">
+        <a href="index.html" aria-current="page">Start</a>
+        <a href="mentor/index.html">Mentor</a>
+        <a href="nauczyciel/index.html">Nauczyciel</a>
+        <a href="dyrekcja/index.html">Dyrekcja</a>
+        <a href="narzedzia.html">Narzędzia</a>
+        <a href="o-projekcie.html">O projekcie</a>
+        <a href="zrodla.html">Źródła i Q&A</a>
       </nav>
-      <div class="lang-switch" role="group" aria-label="Language">
-        <button type="button" data-lang="pl" class="active">PL</button>
-        <button type="button" data-lang="en">EN</button>
-        <button type="button" data-lang="de">DE</button>
+      <div class="search-wrap">
+        <label class="search-box">
+          <span class="meta">Szukaj</span>
+          <input type="search" data-search placeholder="np. obserwacja, zasady współpracy, wsparcie">
+        </label>
+        <div class="search-results" data-search-results aria-live="polite"></div>
       </div>
     </div>
-  </div>
-</header>
+  </header>
 
-<!-- ===== HERO ===== -->
-<section class="hero" id="program">
-  <div class="wrap">
-    <div class="eyebrow">
-      <span class="num">01 / 05</span>
-      <span data-i18n="hero.eyebrow">Międzypokoleniowy mentoring w szkołach</span>
-    </div>
-    <h1 data-i18n="hero.title">Strukturalny model wdrażania nowych nauczycieli.</h1>
-    <p class="lede" data-i18n-html="hero.lede">Praktyczne, transferowalne narzędzia dla początkujących nauczycieli, mentorów i szkół — opracowywane w&nbsp;Zespole Szkół Zawodowych nr&nbsp;5 we&nbsp;Wrocławiu w&nbsp;ramach europejskiego programu wdrożeniowego <b>WIN4SMEs</b>, współfinansowanego przez Unię Europejską.</p>
-
-    <div class="actions">
-      <a class="btn primary" href="#materialy">
-        <span data-i18n="hero.cta_materials">Zobacz materiały</span>
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-      </a>
-      <a class="btn" href="https://win4smes.eu" target="_blank" rel="noopener">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"/></svg>
-        <span data-i18n="hero.cta_win4smes">Strona WIN4SMEs</span>
-      </a>
-    </div>
-
-    <div class="meta">
-      <div><b data-i18n="hero.meta_authors">Autorzy</b>M. Najwer · W. Filipiak</div>
-      <div><b data-i18n="hero.meta_inst">Instytucja</b><span data-i18n="hero.meta_inst_val">ZSZ nr 5, Wrocław</span></div>
-      <div><b data-i18n="hero.meta_program">Program</b>WIN4SMEs</div>
-      <div><b data-i18n="hero.meta_pilot">Pilotaż</b>2025–2026</div>
-    </div>
-
-    <div class="logos">
-      <a href="https://zsz5.edupage.org" target="_blank" rel="noopener" aria-label="Zespół Szkół Zawodowych nr 5 we Wrocławiu">
-        <img src="assets/logo-zsz5.png" alt="ZSZ nr 5">
-      </a>
-      <a href="https://covepolska.pl" target="_blank" rel="noopener" aria-label="COVE Polska">
-        <img src="assets/logo-covepolska.png" alt="COVE Polska">
-      </a>
-      <a href="https://win4smes.eu" target="_blank" rel="noopener" aria-label="WIN4SMEs">
-        <img class="lg-win" src="assets/logo-win4smes-2025.png" alt="WIN4SMEs">
-      </a>
-      <img class="lg-eu" src="assets/logo-eu.png" alt="Co-funded by the European Union">
-    </div>
-  </div>
-</section>
-
-<main>
-
-<!-- ===== CELE ===== -->
-<section class="block" id="cele">
-  <div class="wrap">
-    <div class="sec-head">
-      <div class="eyebrow"><span class="num">02 / 05</span><span data-i18n="goals.eyebrow">Cele wdrożenia</span></div>
-      <h2 data-i18n-html="goals.title">Chcemy, żeby pierwszy rok pracy w szkole <span class="accent-coral">nie był loterią.</span></h2>
-      <p class="sub" data-i18n="goals.sub">Trzy efekty, które chcemy uzyskać dla każdego nowego nauczyciela — i dla każdej szkoły, która przyjmie nasz model.</p>
-    </div>
-
-    <div class="goals">
-      <article class="goal">
-        <div class="gn">→ 01</div>
-        <h3 data-i18n="goals.c1.t">Bezpieczeństwo wejścia</h3>
-        <p data-i18n="goals.c1.p">Każdy nowy nauczyciel — przy wsparciu mentora — przechodzi przez ustrukturyzowaną ścieżkę 7 etapów, od dnia przed pracą po koniec roku. Jasne checklisty, jasne kontakty, jasne procedury.</p>
-        <ul class="check">
-          <li data-i18n="goals.c1.l1">Kontrakt mentoringowy w pierwszym tygodniu</li>
-          <li data-i18n="goals.c1.l2">Mapa kontaktów ZSZ5 — kogo, kiedy, jak</li>
-          <li data-i18n="goals.c1.l3">9 zaplanowanych spotkań w roku szkolnym</li>
-        </ul>
-      </article>
-
-      <article class="goal teal">
-        <div class="gn">→ 02</div>
-        <h3 data-i18n="goals.c2.t">Transfer wiedzy ukrytej</h3>
-        <p data-i18n="goals.c2.p">Większość kompetencji nauczyciela jest doświadczalna — nie da się ich przekazać regulaminem. Mentoring + cyfrowe repozytorium + krótkie wideo to nasz sposób na utrwalanie tego, co dzisiaj znika z każdą emeryturą.</p>
-        <ul class="check">
-          <li data-i18n-html="goals.c2.l1">Repozytorium praktyk na <a href="https://covepolska.pl" target="_blank" rel="noopener">covepolska.pl</a></li>
-          <li data-i18n="goals.c2.l2">Karty refleksji i model OWP (Obserwacja → Wpływ → Pytanie)</li>
-          <li data-i18n="goals.c2.l3">Obserwacje lekcji jako rozmowa, nie ocena</li>
-        </ul>
-      </article>
-
-      <article class="goal coral">
-        <div class="gn">→ 03</div>
-        <h3 data-i18n="goals.c3.t">Mniej stresu, mniej odejść</h3>
-        <p data-i18n="goals.c3.p">Proces wdrożenia to inwestycja w dobrostan — nauczyciela i szkoły. Chcemy obniżyć poziom „przeżywania" pierwszych miesięcy i zatrzymać w zawodzie ludzi, których szkoła naprawdę potrzebuje.</p>
-        <ul class="check">
-          <li data-i18n="goals.c3.l1">Moduł wellbeing wzorowany na praktyce z Finlandii</li>
-          <li data-i18n="goals.c3.l2">Indywidualny Plan Rozwoju (IPR) na semestr</li>
-          <li data-i18n="goals.c3.l3">Ewaluacja programu dwa razy w roku</li>
-        </ul>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- ===== WYZWANIA ===== -->
-<section class="block" id="wyzwania" style="background:var(--paper-2);">
-  <div class="wrap">
-    <div class="sec-head">
-      <div class="eyebrow"><span class="num">03 / 05</span><span data-i18n="challenges.eyebrow">Z czym się zmagamy</span></div>
-      <h2 data-i18n-html="challenges.title">Najtrudniejsze w pracy nauczyciela <span class="accent-coral">nie jest prowadzenie lekcji.</span></h2>
-      <p class="sub" data-i18n="challenges.sub">Rozmowy i ankiety wśród 17 początkujących i 57 doświadczonych nauczycieli ZSZ5 pokazały zupełnie inne obszary trudności.</p>
-    </div>
-
-    <div class="stats">
-      <div class="stat">
-        <div class="n">17</div>
-        <div class="l" data-i18n="challenges.s1.l">Nauczycieli początkujących</div>
-        <div class="d" data-i18n="challenges.s1.d">0–3 lata stażu — pytaliśmy o bariery wejścia do zawodu.</div>
-      </div>
-      <div class="stat">
-        <div class="n teal">57</div>
-        <div class="l" data-i18n="challenges.s2.l">Nauczycieli doświadczonych</div>
-        <div class="d" data-i18n="challenges.s2.d">Mentorzy i obserwatorzy — potwierdzili, co jest transferowalne, a co nie.</div>
-      </div>
-    </div>
-
-    <div class="hairline" style="margin:56px 0 40px;"></div>
-
-    <div class="challenges">
-      <div class="ch-col">
-        <div class="ch-eyebrow" style="color:var(--coral);" data-i18n="challenges.left.h">Najtrudniejsze dla początkujących</div>
-        <ul class="ch-list coral">
-          <li data-i18n-html="challenges.left.l1"><b>Dokumentacja szkolna</b> — e-dziennik, PSO, arkusze ocen, protokoły</li>
-          <li data-i18n-html="challenges.left.l2"><b>Komunikacja z rodzicami</b> — szczególnie w trudnych sytuacjach</li>
-          <li data-i18n-html="challenges.left.l3"><b>Rola wychowawcy klasy</b> — nieznane procedury, brak rutyny</li>
-          <li data-i18n-html="challenges.left.l4"><b>Rozumienie kultury szkoły</b> — niepisane zasady, hierarchia</li>
-          <li data-i18n-html="challenges.left.l5"><b>Stres i obciążenie pracą</b> — pierwsze miesiące to faza „przeżywania"</li>
-        </ul>
-      </div>
-      <div class="ch-col">
-        <div class="ch-eyebrow" style="color:var(--teal);" data-i18n="challenges.right.h">Co potwierdzają doświadczeni</div>
-        <ul class="ch-list teal">
-          <li data-i18n-html="challenges.right.l1"><b>Działa</b> długofalowy mentoring i konsultacje — nie jednorazowe szkolenia</li>
-          <li data-i18n-html="challenges.right.l2"><b>Brakuje</b> ustrukturyzowanych narzędzi mentora — wsparcie oceniają najniżej sami doświadczeni</li>
-          <li data-i18n-html="challenges.right.l3"><b>Znika</b> wiedza instytucjonalna wraz z odejściami na emeryturę</li>
-          <li data-i18n-html="challenges.right.l4"><b>Najważniejsze</b> kompetencje są doświadczalne — nieprzekazywalne regulaminem</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="quote-card">
-      <div class="qm">„</div>
-      <div class="qt" data-i18n="challenges.quote">Żeby czuć się bezpiecznie w nowej pracy, potrzebuję wiedzieć, co będzie się działo i do kogo mogę się zwrócić.</div>
-      <div class="qs" data-i18n="challenges.quote_src">— Wniosek powtarzający się w rozmowach z nauczycielami ZSZ5, 2025</div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== WROCŁAW ===== -->
-<section class="block" id="wroclaw">
-  <div class="wrap">
-    <div class="sec-head">
-      <div class="eyebrow"><span class="num">04 / 05</span><span data-i18n="wroclaw.eyebrow">Co robimy we Wrocławiu</span></div>
-      <h2 data-i18n-html="wroclaw.title">Trzy połączone elementy. <span class="accent-coral">Jeden spójny ekosystem.</span></h2>
-      <p class="sub" data-i18n="wroclaw.sub">Zespół Szkół Zawodowych nr 5 we Wrocławiu pilotuje od roku szkolnego 2025/2026 trójelementowy model wdrożenia — równolegle papierowy, cyfrowy i wideo.</p>
-    </div>
-
-    <div class="pillars">
-      <article class="pillar">
-        <div class="ic">
-          <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 4h11a3 3 0 0 1 3 3v14H7a3 3 0 0 1-3-3z"/><path d="M18 4v17"/><path d="M8 9h6M8 13h6M8 17h4"/></svg>
+  <main id="main" class="main-wrap">
+    <nav class="breadcrumb" aria-label="Ścieżka"><span>Start</span></nav>
+    <section class="hero" aria-labelledby="page-title">
+      <div>
+        <p class="eyebrow">WIN4SMEs / COVE Polska / ZSZ5 Wrocław</p>
+        <h1 id="page-title">Wdrożenie nauczycieli: Mentor, Dyrekcja i Nauczyciel</h1>
+        <p>Wybierz ścieżkę: mentor, dyrekcja albo nauczyciel początkujący. Każda prowadzi przez zadania, rozmowy i decyzje potrzebne w pierwszym roku pracy.</p>
+        <div class="badges">
+          <span class="badge project">Projekt WIN4SMEs / COVE Polska</span>
+          <span class="badge required">6 rozmów wymaganych</span>
+          <span class="badge optional">3 rozmowy opcjonalne</span>
+          <span class="badge legal">Nie jest to wymóg ustawowy</span>
         </div>
-        <div class="pnum" data-i18n="wroclaw.p1.n">01 — Podręcznik</div>
-        <h3 data-i18n="wroclaw.p1.t">Workbook mentora i nauczyciela</h3>
-        <p data-i18n="wroclaw.p1.p">Zadania na kolejne okresy pracy, checklisty, cykl konkretnych spotkań w pierwszym roku, karty refleksji i IPR — wszystko w jednym dokumencie warsztatowym z miejscem na notatki.</p>
-        <span class="link" data-i18n="wroclaw.p1.tag">Wersja pilotażowa 2025/2026</span>
-      </article>
-
-      <article class="pillar teal">
-        <div class="ic">
-          <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="18" height="14" rx="1.5"/><path d="M3 8h18"/><circle cx="6" cy="6" r="0.6" fill="currentColor"/><circle cx="8" cy="6" r="0.6" fill="currentColor"/><path d="M9 22h6M12 18v4"/></svg>
-        </div>
-        <div class="pnum" data-i18n="wroclaw.p2.n">02 — Platforma</div>
-        <h3 data-i18n="wroclaw.p2.t">Mapa drogowa wdrożenia nauczyciela</h3>
-        <p data-i18n-html="wroclaw.p2.p">Otwarta strona prowadząca mentora i nauczyciela przez etapy wdrożenia: od pierwszych decyzji organizacyjnych po refleksję po roku pracy.</p>
-        <a class="link" href="https://covepolska.pl" target="_blank" rel="noopener">
-          <span>covepolska.pl</span>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"/></svg>
-        </a>
-      </article>
-
-      <article class="pillar coral">
-        <div class="ic">
-          <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="5" width="20" height="14" rx="3"/><path d="M10 9l5 3-5 3z" fill="currentColor" stroke="none"/></svg>
-        </div>
-        <div class="pnum" data-i18n="wroclaw.p3.n">03 — Wideo</div>
-        <h3 data-i18n="wroclaw.p3.t">Mikrouczenie</h3>
-        <p data-i18n="wroclaw.p3.p">Krótkie nagrania pokazujące, co zrobić w danym okresie wdrożenia — powiązane z podręcznikiem i rytmem roku szkolnego. Pierwsze wideo wprowadzające dostępne jest na YouTube.</p>
-        <a class="link" href="https://youtu.be/s3SoBvTP3i4" target="_blank" rel="noopener">
-          <span data-i18n="wroclaw.p3.cta">Obejrzyj na YouTube</span>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"/></svg>
-        </a>
-      </article>
-    </div>
-
-    <div class="ecosystem">
-      <div class="eco-eyebrow" data-i18n="wroclaw.eco_h">Model 4-komponentowy WIN4SMEs</div>
-      <div class="eco-rows">
-        <div class="eco-row"><span class="eco-n">A</span><span class="eco-k" data-i18n="wroclaw.eco.a_k">Formalny mentor</span><span class="eco-v" data-i18n="wroclaw.eco.a_v">Każdy nowy nauczyciel ma przypisanego mentora z wynagrodzeniem.</span></div>
-        <div class="eco-row"><span class="eco-n">B</span><span class="eco-k" data-i18n="wroclaw.eco.b_k">Transfer wiedzy ukrytej</span><span class="eco-v" data-i18n="wroclaw.eco.b_v">Ustrukturyzowane przekazywanie know-how instytucjonalnego.</span></div>
-        <div class="eco-row"><span class="eco-n">C</span><span class="eco-k" data-i18n="wroclaw.eco.c_k">Repozytorium cyfrowe</span><span class="eco-v" data-i18n="wroclaw.eco.c_v">Strona „Przewodnik Nauczyciela" — otwarta dla innych szkół.</span></div>
-        <div class="eco-row"><span class="eco-n">D</span><span class="eco-k" data-i18n="wroclaw.eco.d_k">Checklisty + spotkania</span><span class="eco-v" data-i18n="wroclaw.eco.d_v">9 punktów kontrolnych w roku — od kontraktu po bilans roczny.</span></div>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== MATERIAŁY ===== -->
-<section class="block" id="materialy" style="background:var(--ink);color:var(--paper);border-bottom:none;">
-  <div class="wrap">
-    <div class="sec-head" style="max-width:none;">
-      <div class="eyebrow" style="color:#e0a37e;"><span class="num" style="color:rgba(244,239,230,0.45);">05 / 05</span><span data-i18n="materials.eyebrow">Materiały i odnośniki</span></div>
-      <h2 style="color:var(--paper);" data-i18n="materials.title">Zobacz model w działaniu.</h2>
-      <p class="sub" style="color:rgba(244,239,230,0.7);" data-i18n="materials.sub">Film wprowadzający i strony programu — w jednym miejscu.</p>
-    </div>
-
-    <div class="video-grid">
-      <div class="video-wrap">
-        <iframe
-          src="https://www.youtube.com/embed/s3SoBvTP3i4?si=yyHV-PeLQCFyYB41"
-          title="YouTube video player"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          referrerpolicy="strict-origin-when-cross-origin"
-          allowfullscreen></iframe>
-      </div>
-      <aside class="video-side">
-        <div class="vs-eyebrow" data-i18n="materials.video.eyebrow">Wideo wprowadzające</div>
-        <h3 data-i18n="materials.video.t">Krótkie wprowadzenie do programu wdrożenia</h3>
-        <p data-i18n="materials.video.p">Pierwsze nagranie z planowanego cyklu mikro-uczenia. Pokazuje genezę programu i strukturę modelu wdrożenia.</p>
-        <a href="https://youtu.be/s3SoBvTP3i4" target="_blank" rel="noopener" class="vs-link">
-          youtu.be/s3SoBvTP3i4
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"/></svg>
-        </a>
+      <aside class="status-panel" aria-labelledby="model-title">
+        <h2 id="model-title">Model 6+3</h2>
+        <p><strong>6 rozmów wymaganych</strong> tworzy podstawowy rytm roku: start, dokumentacja, trudności, obserwacja, półrocze i bilans.</p>
+        <p><strong>3 rozmowy opcjonalne</strong> są pogłębieniem: wychowawstwo, druga obserwacja, dobrostan i granice pracy.</p>
+        <p class="meta">Model jest standardem organizacyjnym projektu COVE/WP3 A4, a nie dodatkowym obowiązkiem wynikającym z przepisów prawa.</p>
       </aside>
-    </div>
+    </section>
 
-    <div class="link-cards">
-      <a class="lc" href="https://win4smes.eu" target="_blank" rel="noopener">
-        <div class="lc-eyebrow" data-i18n="materials.lc1.e">Program europejski</div>
-        <div class="lc-domain">WIN4SMEs.eu</div>
-        <p data-i18n="materials.lc1.p">Główna strona programu Workplace Innovation for SMEs — kontekst i działania w innych krajach.</p>
-        <div class="lc-arrow">→</div>
-      </a>
-      <div class="lc lc-multi">
-        <a class="lc-main" href="https://covepolska.pl" target="_blank" rel="noopener">
-          <div class="lc-eyebrow" data-i18n="materials.lc2.e">COVE Polska</div>
-          <div class="lc-domain">covepolska.pl <span class="lc-arrow-inline">→</span></div>
-          <p data-i18n="materials.lc2.p">Centrum doskonałości zawodowej i punkt wejścia do informacji o działaniach COVE Polska.</p>
+    <section aria-labelledby="role-title">
+      <h2 id="role-title">Ścieżki użytkownika</h2>
+      <div class="role-grid">
+        <a class="role-card mentor" href="mentor/index.html">
+          <span class="badge required">Dostępne</span>
+          <h3>Mentor</h3>
+          <p>Standard pracy, granice odpowiedzialności, 6 rozmów, 3 rozmowy dodatkowe, obserwacja lekcji i gotowe narzędzia.</p>
+          <span class="cta">Przejdź do centrum mentora</span>
         </a>
-        <div class="lc-social">
-          <a href="https://www.linkedin.com/company/cove-polska" target="_blank" rel="noopener" aria-label="COVE Polska na LinkedIn">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3v9zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19a.66.66 0 000 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"/></svg>
-            <span>LinkedIn</span>
-          </a>
-          <a href="https://www.facebook.com/people/COVE-PolskaWIN4SMEs/61573736918326/" target="_blank" rel="noopener" aria-label="COVE Polska na Facebooku">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 10-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.77l-.44 2.89h-2.33v6.99A10 10 0 0022 12z"/></svg>
-            <span>Facebook</span>
-          </a>
+        <a class="role-card teacher" href="nauczyciel/index.html">
+          <span class="badge required">Dostępne</span>
+          <h3>Nauczyciel początkujący</h3>
+          <p>Praktyczna ścieżka pierwszego roku: start w szkole, pierwsze 30 dni, mentor, dokumentacja, klasa, rodzice, obserwacja i koniec roku.</p>
+          <span class="cta">Przejdź do sekcji nauczyciela</span>
+        </a>
+        <a class="role-card director" href="dyrekcja/index.html">
+          <span class="badge required">Dostępne</span>
+          <h3>Dyrekcja / koordynator</h3>
+          <p>Droga wdrożenia w szkole: co przygotować, co przekazać mentorowi, co przekazać nauczycielowi i co sprawdzać w ciągu roku.</p>
+          <span class="cta">Przejdź do centrum dyrekcji</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="process-title">
+      <h2 id="process-title">Cykl pracy w skrócie</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Moment</th>
+              <th>Rozmowa</th>
+              <th>Status</th>
+              <th>Efekt</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Tydzień 1-2</td><td>Start i zasady współpracy</td><td><span class="badge required">Wymagane</span></td><td>Zasady współpracy, granice, pierwsze priorytety.</td></tr>
+            <tr><td>Tydzień 3-6</td><td>Dokumentacja i rytm szkoły</td><td><span class="badge required">Wymagane</span></td><td>Lista dokumentów, terminów i osób kontaktowych.</td></tr>
+            <tr><td>Tydzień 6-10</td><td>Pierwsze trudności, rodzice i klasa</td><td><span class="badge required">Wymagane</span></td><td>Plan działania na jedną lub dwie trudności.</td></tr>
+            <tr><td>Listopad-styczeń</td><td>Obserwacja i informacja zwrotna</td><td><span class="badge required">Wymagane</span></td><td>Jeden obszar rozwoju po lekcji.</td></tr>
+            <tr><td>Przed klasyfikacją</td><td>Półrocze, klasyfikacja i cele</td><td><span class="badge required">Wymagane</span></td><td>Korekta planu i przygotowanie do klasyfikacji.</td></tr>
+            <tr><td>Maj-czerwiec</td><td>Bilans roczny i ewaluacja</td><td><span class="badge required">Wymagane</span></td><td>Wnioski dla nauczyciela, mentora i programu.</td></tr>
+            <tr><td>Według potrzeby</td><td>Wychowawstwo / druga obserwacja / dobrostan</td><td><span class="badge optional">Opcjonalne</span></td><td>Dodatkowa rozmowa tylko wtedy, gdy jest realna potrzeba.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+
+    <section class="section" aria-labelledby="site-map-title">
+      <h2 id="site-map-title">Mapa całej strony</h2>
+      <div class="site-map-grid">
+        <div class="site-map-column mentor">
+          <h3>Mentor</h3>
+          <ul>
+            <li><a href="mentor/index.html">Centrum mentora</a><span>Mapa pracy mentora i granice odpowiedzialności.</span></li>
+            <li><a href="mentor/standard.html">Standard i granice</a><span>Poufność, zasady współpracy, notatka i przekazanie sprawy dalej.</span></li>
+            <li><a href="mentor/rozmowy-wymagane.html">6 rozmów</a><span>Pełny cykl rozmów wymaganych.</span></li>
+            <li><a href="mentor/rozmowy-dodatkowe.html">3 rozmowy dodatkowe</a><span>Dodatkowe rozmowy, gdy są potrzebne.</span></li>
+            <li><a href="mentor/obserwacja-i-feedback.html">Obserwacja i informacja zwrotna</a><span>Proces obserwacji rozwojowej.</span></li>
+            <li><a href="mentor/narzedzia.html">Narzędzia mentora</a><span>Formularze, listy kontrolne i rejestr rozmów.</span></li>
+          </ul>
+        </div>
+        <div class="site-map-column teacher">
+          <h3>Nauczyciel</h3>
+          <ul>
+            <li><a href="nauczyciel/index.html">Centrum nauczyciela</a><span>Pełna ścieżka pierwszego roku.</span></li>
+            <li><a href="nauczyciel/start-w-szkole.html">Start w szkole</a><span>Osoby kontaktowe, dostęp i pierwszy dzień.</span></li>
+            <li><a href="nauczyciel/pierwsze-30-dni.html">Pierwsze 30 dni</a><span>Pierwszy tydzień, rutyny i rozmowa z mentorem.</span></li>
+            <li><a href="nauczyciel/praca-z-mentorem.html">Praca z mentorem</a><span>Model 6+3 z perspektywy nauczyciela.</span></li>
+            <li><a href="nauczyciel/dokumentacja-i-systemy.html">Dokumentacja i systemy</a><span>Dziennik, oceny, frekwencja i dane uczniów.</span></li>
+            <li><a href="nauczyciel/lekcja-i-klasa.html">Lekcja i klasa</a><span>Pierwsza lekcja, zasady i trudności.</span></li>
+            <li><a href="nauczyciel/wspolpraca-z-rodzicami.html">Współpraca z rodzicami</a><span>Przygotowanie rozmowy i komunikacja.</span></li>
+            <li><a href="nauczyciel/obserwacja-i-informacja-zwrotna.html">Obserwacja</a><span>Przygotowanie do obserwacji i cel rozwojowy.</span></li>
+            <li><a href="nauczyciel/trudne-sytuacje-i-wsparcie.html">Trudne sytuacje</a><span>Mapa wsparcia i przekazanie sprawy właściwej osobie.</span></li>
+            <li><a href="nauczyciel/polrocze-i-koniec-roku.html">Półrocze i koniec roku</a><span>Klasyfikacja, drugie półrocze i bilans.</span></li>
+          </ul>
+        </div>
+        <div class="site-map-column director">
+          <h3>Dyrekcja i strony wspólne</h3>
+          <ul>
+            <li><a href="dyrekcja/index.html">Centrum dyrekcji</a><span>Role, pakiety informacji i sprawdzanie przebiegu.</span></li>
+            <li><a href="dyrekcja/wdrozenie.html">Droga wdrożenia</a><span>Etapy pracy od startu do końca roku.</span></li>
+            <li><a href="dyrekcja/formularz-wsadu.html">Formularz danych szkoły</a><span>Uzupełnij lokalne kontakty, procedury i terminy do wydruku.</span></li>
+            <li><a href="narzedzia.html">Biblioteka narzędzi</a><span>Mapa dostępnych formularzy i list kontrolnych.</span></li>
+            <li><a href="formularze.html">Formularze do druku</a><span>Dziesięć formularzy do uzupełnienia na stronie i zapisania jako PDF.</span></li>
+            <li><a href="o-projekcie.html">O projekcie</a><span>Zakres, finansowanie i odpowiedzialność.</span></li>
+            <li><a href="zrodla.html">Źródła i Q&A</a><span>Podstawy prawne, projektowe, lokalne i miejsce na pytania prawne.</span></li>
+          </ul>
         </div>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-</main>
+    <section class="section" aria-labelledby="limits-title">
+      <h2 id="limits-title">Zakres strony</h2>
+      <div class="two-col">
+        <div class="callout">
+          <h3>Co jest dostępne</h3>
+          <p>Moduł Mentora, ścieżka Nauczyciela początkującego, sekcja Dyrekcji, biblioteka narzędzi, informacja o projekcie oraz źródła z miejscem na Q&A.</p>
+        </div>
+        <div class="callout warning">
+          <h3>Co wymaga lokalnego dopasowania</h3>
+          <p>Dane szkoły, kontakty, lokalne procedury, terminy, dokumenty oraz decyzje, które wzory formularzy szkoła chce opublikować jako pliki do pobrania.</p>
+        </div>
+      </div>
+    </section>
+  </main>
 
-<footer>
-  <div class="wrap">
-    <div class="grid">
+  <footer class="site-footer">
+    <div class="footer-inner">
       <div>
-        <h4 data-i18n="footer.about.h">O programie</h4>
-        <p data-i18n-html="footer.about.p">Program wdrożenia realizowany w Zespole Szkół Zawodowych nr&nbsp;5 we Wrocławiu w&nbsp;ramach europejskiej inicjatywy WIN4SMEs. Celem jest stworzenie transferowalnego modelu wdrażania nauczycieli — z myślą o innych szkołach w Polsce i w Europie.</p>
+        <strong>Wdrożenie nauczycieli | WIN4SMEs / COVE Polska</strong>
+        <p class="funding-note">Materiały przygotowane w ramach WP3 A4 HR Management Program. Treści projektowe wymagają lokalnego dopasowania przed użyciem jako procedura szkoły.</p>
       </div>
-      <div>
-        <h4 data-i18n="footer.links.h">Linki</h4>
-        <ul>
-          <li><a href="https://win4smes.eu" target="_blank" rel="noopener">win4smes.eu</a></li>
-          <li><a href="https://covepolska.pl" target="_blank" rel="noopener">covepolska.pl</a></li>
-          <li><a href="https://youtu.be/s3SoBvTP3i4" target="_blank" rel="noopener" data-i18n="footer.links.yt">YouTube — wideo wprowadzające</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4 data-i18n="footer.contact.h">Kontakt</h4>
-        <ul>
-          <li><a href="https://zsz5.edupage.org" target="_blank" rel="noopener" data-i18n="footer.contact.l1">Zespół Szkół Zawodowych nr 5</a></li>
-          <li data-i18n="footer.contact.l2">ul. Dawida 5, Wrocław</li>
-          <li>Maciej Najwer · Wiesław Filipiak</li>
-        </ul>
-      </div>
+      <div class="footer-logos" aria-label="Linki projektowe"><a href="https://win4smes.eu/" aria-label="WIN4SMEs" target="_blank" rel="noopener"><img src="assets/logos/win4smes-logo.png" alt="WIN4SMEs"></a><a href="https://covepolska.pl/" aria-label="COVE Polska" target="_blank" rel="noopener"><img src="assets/logos/cove-polska-logo.png" alt="COVE Polska"></a><a href="https://ec.europa.eu/info/funding-tenders/opportunities/portal/screen/home" aria-label="Funding and Tenders Portal Komisji Europejskiej" target="_blank" rel="noopener"><img src="assets/logos/ue-dofinansowanie.png" alt="Dofinansowane przez Unię Europejską"></a></div>
     </div>
-
-    <div class="fund-strip">
-      <div class="fund-logos">
-        <a href="https://win4smes.eu" target="_blank" rel="noopener" aria-label="WIN4SMEs">
-          <img class="fund-win" src="assets/logo-win4smes-2025.png" alt="WIN4SMEs">
-        </a>
-        <img class="fund-eu" src="assets/logo-eu.png" alt="Co-funded by the European Union">
-      </div>
-      <div class="fund-text">
-        <p class="fund-tag" data-i18n="footer.fund">Program wdrożenia współfinansowany przez Unię Europejską w ramach inicjatywy WIN4SMEs (Workplace Innovation for SMEs).</p>
-        <p class="fund-disclaimer" data-i18n="footer.disclaimer">Sfinansowane przez Unię Europejską. Wyrażone poglądy i opinie są jednak wyłącznie poglądami autorów i niekoniecznie odzwierciedlają poglądy Unii Europejskiej lub Europejskiej Agencji Wykonawczej ds. Edukacji i Kultury (EACEA). Ani Unia Europejska, ani EACEA nie ponoszą za nie odpowiedzialności.</p>
-      </div>
-    </div>
-
-    <div class="colophon">
-      <div>© 2026 ZSZ nr 5 Wrocław · WIN4SMEs</div>
-    </div>
-  </div>
-</footer>
-
-<script>
-/* ============ i18n ============ */
-const I18N = {
-  pl: {
-    "nav.program":"Program",
-    "nav.goals":"Cele",
-    "nav.challenges":"Wyzwania",
-    "nav.wroclaw":"Wrocław",
-    "nav.materials":"Materiały",
-
-    "hero.eyebrow":"Międzypokoleniowy mentoring w szkołach",
-    "hero.title":"Strukturalny model wdrażania nowych nauczycieli.",
-    "hero.lede":"Praktyczne, transferowalne narzędzia dla początkujących nauczycieli, mentorów i&nbsp;szkół — opracowywane w&nbsp;Zespole Szkół Zawodowych nr&nbsp;5 we&nbsp;Wrocławiu w&nbsp;ramach europejskiego programu wdrożeniowego <b>WIN4SMEs</b>, współfinansowanego przez Unię Europejską.",
-    "hero.cta_materials":"Zobacz materiały",
-    "hero.cta_win4smes":"Strona WIN4SMEs",
-    "hero.meta_authors":"Autorzy",
-    "hero.meta_inst":"Instytucja",
-    "hero.meta_inst_val":"ZSZ nr 5, Wrocław",
-    "hero.meta_program":"Program",
-    "hero.meta_pilot":"Pilotaż",
-
-    "goals.eyebrow":"Cele wdrożenia",
-    "goals.title":"Chcemy, żeby pierwszy rok pracy w szkole <span class=\"accent-coral\">nie był loterią.</span>",
-    "goals.sub":"Trzy efekty, które chcemy uzyskać dla każdego nowego nauczyciela — i dla każdej szkoły, która przyjmie nasz model.",
-    "goals.c1.t":"Bezpieczeństwo wejścia",
-    "goals.c1.p":"Każdy nowy nauczyciel — przy wsparciu mentora — przechodzi przez ustrukturyzowaną ścieżkę 7 etapów, od dnia przed pracą po koniec roku. Jasne checklisty, jasne kontakty, jasne procedury.",
-    "goals.c1.l1":"Kontrakt mentoringowy w pierwszym tygodniu",
-    "goals.c1.l2":"Mapa kontaktów ZSZ5 — kogo, kiedy, jak",
-    "goals.c1.l3":"9 zaplanowanych spotkań w roku szkolnym",
-    "goals.c2.t":"Transfer wiedzy ukrytej",
-    "goals.c2.p":"Większość kompetencji nauczyciela jest doświadczalna — nie da się ich przekazać regulaminem. Mentoring + cyfrowe repozytorium + krótkie wideo to nasz sposób na utrwalanie tego, co dzisiaj znika z każdą emeryturą.",
-    "goals.c2.l1":"Repozytorium praktyk na <a href=\"https://covepolska.pl\" target=\"_blank\" rel=\"noopener\">covepolska.pl</a>",
-    "goals.c2.l2":"Karty refleksji i model OWP (Obserwacja → Wpływ → Pytanie)",
-    "goals.c2.l3":"Obserwacje lekcji jako rozmowa, nie ocena",
-    "goals.c3.t":"Mniej stresu, mniej odejść",
-    "goals.c3.p":"Proces wdrożenia to inwestycja w dobrostan — nauczyciela i szkoły. Chcemy obniżyć poziom „przeżywania” pierwszych miesięcy i zatrzymać w zawodzie ludzi, których szkoła naprawdę potrzebuje.",
-    "goals.c3.l1":"Moduł wellbeing wzorowany na praktyce z Finlandii",
-    "goals.c3.l2":"Indywidualny Plan Rozwoju (IPR) na semestr",
-    "goals.c3.l3":"Ewaluacja programu dwa razy w roku",
-
-    "challenges.eyebrow":"Z czym się zmagamy",
-    "challenges.title":"Najtrudniejsze w pracy nauczyciela <span class=\"accent-coral\">nie jest prowadzenie lekcji.</span>",
-    "challenges.sub":"Rozmowy i ankiety wśród 17 początkujących i 57 doświadczonych nauczycieli ZSZ5 pokazały zupełnie inne obszary trudności.",
-    "challenges.s1.l":"Nauczycieli początkujących",
-    "challenges.s1.d":"0–3 lata stażu — pytaliśmy o bariery wejścia do zawodu.",
-    "challenges.s2.l":"Nauczycieli doświadczonych",
-    "challenges.s2.d":"Mentorzy i obserwatorzy — potwierdzili, co jest transferowalne, a co nie.",
-    "challenges.left.h":"Najtrudniejsze dla początkujących",
-    "challenges.left.l1":"<b>Dokumentacja szkolna</b> — e-dziennik, PSO, arkusze ocen, protokoły",
-    "challenges.left.l2":"<b>Komunikacja z rodzicami</b> — szczególnie w trudnych sytuacjach",
-    "challenges.left.l3":"<b>Rola wychowawcy klasy</b> — nieznane procedury, brak rutyny",
-    "challenges.left.l4":"<b>Rozumienie kultury szkoły</b> — niepisane zasady, hierarchia",
-    "challenges.left.l5":"<b>Stres i obciążenie pracą</b> — pierwsze miesiące to faza „przeżywania”",
-    "challenges.right.h":"Co potwierdzają doświadczeni",
-    "challenges.right.l1":"<b>Działa</b> długofalowy mentoring i konsultacje — nie jednorazowe szkolenia",
-    "challenges.right.l2":"<b>Brakuje</b> ustrukturyzowanych narzędzi mentora — wsparcie oceniają najniżej sami doświadczeni",
-    "challenges.right.l3":"<b>Znika</b> wiedza instytucjonalna wraz z odejściami na emeryturę",
-    "challenges.right.l4":"<b>Najważniejsze</b> kompetencje są doświadczalne — nieprzekazywalne regulaminem",
-    "challenges.quote":"Żeby czuć się bezpiecznie w nowej pracy, potrzebuję wiedzieć, co będzie się działo i do kogo mogę się zwrócić.",
-    "challenges.quote_src":"— Wniosek powtarzający się w rozmowach z nauczycielami ZSZ5, 2025",
-
-    "wroclaw.eyebrow":"Co robimy we Wrocławiu",
-    "wroclaw.title":"Trzy połączone elementy. <span class=\"accent-coral\">Jeden spójny ekosystem.</span>",
-    "wroclaw.sub":"Zespół Szkół Zawodowych nr 5 we Wrocławiu pilotuje od roku szkolnego 2025/2026 trójelementowy model wdrożenia — równolegle papierowy, cyfrowy i wideo.",
-    "wroclaw.p1.n":"01 — Podręcznik",
-    "wroclaw.p1.t":"Workbook mentora i nauczyciela",
-    "wroclaw.p1.p":"Zadania na kolejne okresy pracy, checklisty, cykl konkretnych spotkań w pierwszym roku, karty refleksji i IPR — wszystko w jednym dokumencie warsztatowym z miejscem na notatki.",
-    "wroclaw.p1.tag":"Wersja pilotażowa 2025/2026",
-    "wroclaw.p2.n":"02 — Platforma",
-    "wroclaw.p2.t":"Mapa drogowa wdrożenia nauczyciela",
-    "wroclaw.p2.p":"Otwarta strona prowadząca mentora i nauczyciela przez etapy wdrożenia: od pierwszych decyzji organizacyjnych po refleksję po roku pracy.",
-    "wroclaw.p3.n":"03 — Wideo",
-    "wroclaw.p3.t":"Mikrouczenie",
-    "wroclaw.p3.p":"Krótkie nagrania pokazujące, co zrobić w danym okresie wdrożenia — powiązane z podręcznikiem i rytmem roku szkolnego. Pierwsze wideo wprowadzające dostępne jest na YouTube.",
-    "wroclaw.p3.cta":"Obejrzyj na YouTube",
-    "wroclaw.eco_h":"Model 4-komponentowy WIN4SMEs",
-    "wroclaw.eco.a_k":"Formalny mentor",
-    "wroclaw.eco.a_v":"Każdy nowy nauczyciel ma przypisanego mentora z wynagrodzeniem.",
-    "wroclaw.eco.b_k":"Transfer wiedzy ukrytej",
-    "wroclaw.eco.b_v":"Ustrukturyzowane przekazywanie know-how instytucjonalnego.",
-    "wroclaw.eco.c_k":"Repozytorium cyfrowe",
-    "wroclaw.eco.c_v":"Strona „Przewodnik Nauczyciela” — otwarta dla innych szkół.",
-    "wroclaw.eco.d_k":"Checklisty + spotkania",
-    "wroclaw.eco.d_v":"9 punktów kontrolnych w roku — od kontraktu po bilans roczny.",
-
-    "materials.eyebrow":"Materiały i odnośniki",
-    "materials.title":"Zobacz model w działaniu.",
-    "materials.sub":"Film wprowadzający i strony programu — w jednym miejscu.",
-    "materials.video.eyebrow":"Wideo wprowadzające",
-    "materials.video.t":"Krótkie wprowadzenie do programu wdrożenia",
-    "materials.video.p":"Pierwsze nagranie z planowanego cyklu mikro-uczenia. Pokazuje genezę programu i strukturę modelu wdrożenia.",
-    "materials.lc1.e":"Program europejski",
-    "materials.lc1.p":"Główna strona programu Workplace Innovation for SMEs — kontekst i działania w innych krajach.",
-    "materials.lc2.e":"COVE Polska",
-    "materials.lc2.p":"Centrum doskonałości zawodowej i punkt wejścia do informacji o działaniach COVE Polska.",
-
-    "footer.about.h":"O programie",
-    "footer.about.p":"Program wdrożenia realizowany w Zespole Szkół Zawodowych nr&nbsp;5 we Wrocławiu w&nbsp;ramach europejskiej inicjatywy WIN4SMEs. Celem jest stworzenie transferowalnego modelu wdrażania nauczycieli — z myślą o innych szkołach w Polsce i w Europie.",
-    "footer.links.h":"Linki",
-    "footer.links.yt":"YouTube — wideo wprowadzające",
-    "footer.contact.h":"Kontakt",
-    "footer.contact.l1":"Zespół Szkół Zawodowych nr 5",
-    "footer.contact.l2":"ul. Dawida 5, Wrocław",
-    "footer.fund":"Program wdrożenia współfinansowany przez Unię Europejską w ramach inicjatywy WIN4SMEs (Workplace Innovation for SMEs).",
-    "footer.disclaimer":"Sfinansowane przez Unię Europejską. Wyrażone poglądy i opinie są jednak wyłącznie poglądami autorów i niekoniecznie odzwierciedlają poglądów Unii Europejskiej ani Europejskiej Agencji Wykonawczej ds. Edukacji i Kultury (EACEA). Ani Unia Europejska, ani EACEA nie ponoszą za nie odpowiedzialności."
-  },
-
-  en: {
-    "nav.program":"Programme",
-    "nav.goals":"Goals",
-    "nav.challenges":"Challenges",
-    "nav.wroclaw":"Wrocław",
-    "nav.materials":"Materials",
-
-    "hero.eyebrow":"Intergenerational mentoring in schools",
-    "hero.title":"A structured onboarding model for new teachers.",
-    "hero.lede":"Practical, transferable tools for novice teachers, mentors and schools — developed at Vocational School Complex no.&nbsp;5 in Wrocław as part of the European implementation programme <b>WIN4SMEs</b>, co-funded by the European Union.",
-    "hero.cta_materials":"See materials",
-    "hero.cta_win4smes":"WIN4SMEs site",
-    "hero.meta_authors":"Authors",
-    "hero.meta_inst":"Institution",
-    "hero.meta_inst_val":"ZSZ no. 5, Wrocław",
-    "hero.meta_program":"Programme",
-    "hero.meta_pilot":"Pilot",
-
-    "goals.eyebrow":"Goals of the implementation",
-    "goals.title":"We want a teacher's first year at school <span class=\"accent-coral\">to stop being a lottery.</span>",
-    "goals.sub":"Three outcomes we want for every new teacher — and for every school that adopts our model.",
-    "goals.c1.t":"A safe start",
-    "goals.c1.p":"Every new teacher — with a mentor — moves through a 7-stage structured path, from the day before work starts to the end of the school year. Clear checklists, clear contacts, clear procedures.",
-    "goals.c1.l1":"Mentoring contract in the first week",
-    "goals.c1.l2":"ZSZ5 contact map — who, when, how",
-    "goals.c1.l3":"9 planned meetings across the school year",
-    "goals.c2.t":"Transfer of tacit knowledge",
-    "goals.c2.p":"Most of a teacher's competence is experiential — it cannot be passed on through regulations. Mentoring + a digital repository + short videos: that is how we preserve what is disappearing with each retirement.",
-    "goals.c2.l1":"Practice repository at <a href=\"https://covepolska.pl\" target=\"_blank\" rel=\"noopener\">covepolska.pl</a>",
-    "goals.c2.l2":"Reflection cards and the OIQ model (Observation → Impact → Question)",
-    "goals.c2.l3":"Lesson observations as a conversation, not an assessment",
-    "goals.c3.t":"Less stress, fewer departures",
-    "goals.c3.p":"Onboarding is an investment in wellbeing — of the teacher and of the school. We want to take the “survival mode” out of the first months and keep in the profession people the school really needs.",
-    "goals.c3.l1":"A wellbeing module inspired by Finnish practice",
-    "goals.c3.l2":"Individual Development Plan (IDP) per semester",
-    "goals.c3.l3":"Programme evaluation twice a year",
-
-    "challenges.eyebrow":"What we are dealing with",
-    "challenges.title":"The hardest part of teaching <span class=\"accent-coral\">is not teaching lessons.</span>",
-    "challenges.sub":"Conversations and surveys with 17 novice and 57 experienced teachers at ZSZ5 pointed to very different problem areas.",
-    "challenges.s1.l":"Novice teachers",
-    "challenges.s1.d":"0–3 years of experience — asked about barriers to entering the profession.",
-    "challenges.s2.l":"Experienced teachers",
-    "challenges.s2.d":"Mentors and observers — confirmed what is transferable and what is not.",
-    "challenges.left.h":"Hardest for novice teachers",
-    "challenges.left.l1":"<b>School documentation</b> — e-gradebook, assessment system, registers, minutes",
-    "challenges.left.l2":"<b>Communication with parents</b> — especially in difficult situations",
-    "challenges.left.l3":"<b>The role of class tutor</b> — unknown procedures, no routine",
-    "challenges.left.l4":"<b>Understanding school culture</b> — unwritten rules, hierarchy",
-    "challenges.left.l5":"<b>Stress and workload</b> — the first months are a “survival” phase",
-    "challenges.right.h":"What experienced teachers confirm",
-    "challenges.right.l1":"<b>What works</b> is long-term mentoring and consultation — not one-off training sessions",
-    "challenges.right.l2":"<b>What's missing</b> are structured mentor tools — experienced teachers themselves rate support the lowest",
-    "challenges.right.l3":"<b>What's disappearing</b> is institutional knowledge, with each retirement",
-    "challenges.right.l4":"<b>The most important</b> competences are experiential — not transferable through regulations",
-    "challenges.quote":"To feel safe in a new job, I need to know what will happen next and who I can turn to.",
-    "challenges.quote_src":"— Recurring finding from conversations with ZSZ5 teachers, 2025",
-
-    "wroclaw.eyebrow":"What we do in Wrocław",
-    "wroclaw.title":"Three connected pieces. <span class=\"accent-coral\">One coherent ecosystem.</span>",
-    "wroclaw.sub":"Since the 2025/2026 school year, Vocational School Complex no. 5 in Wrocław has been piloting a three-part onboarding model — print, digital and video in parallel.",
-    "wroclaw.p1.n":"01 — Workbook",
-    "wroclaw.p1.t":"Mentor & teacher workbook",
-    "wroclaw.p1.p":"Tasks for successive periods of work, checklists, a cycle of concrete meetings in the first year, reflection cards and an IDP — all in one workshop-style document with room for notes.",
-    "wroclaw.p1.tag":"Pilot version 2025/2026",
-    "wroclaw.p2.n":"02 — Platform",
-    "wroclaw.p2.t":"Teacher induction roadmap",
-    "wroclaw.p2.p":"An open site guiding the mentor and the teacher through the stages of induction: from the first organisational decisions to reflection after the first year of work.",
-    "wroclaw.p3.n":"03 — Video",
-    "wroclaw.p3.t":"Micro-learning",
-    "wroclaw.p3.p":"Short videos showing what to do in a given period of induction — tied to the workbook and to the rhythm of the school year. The first introductory video is on YouTube.",
-    "wroclaw.p3.cta":"Watch on YouTube",
-    "wroclaw.eco_h":"WIN4SMEs 4-component model",
-    "wroclaw.eco.a_k":"Formal mentor",
-    "wroclaw.eco.a_v":"Every new teacher has an assigned, paid mentor.",
-    "wroclaw.eco.b_k":"Tacit knowledge transfer",
-    "wroclaw.eco.b_v":"Structured passing-on of institutional know-how.",
-    "wroclaw.eco.c_k":"Digital repository",
-    "wroclaw.eco.c_v":"“Teacher's Guide” website — open to other schools.",
-    "wroclaw.eco.d_k":"Checklists + meetings",
-    "wroclaw.eco.d_v":"9 checkpoints across the year — from contract to annual review.",
-
-    "materials.eyebrow":"Materials and links",
-    "materials.title":"See the model in action.",
-    "materials.sub":"An introductory video and the programme's websites — in one place.",
-    "materials.video.eyebrow":"Introductory video",
-    "materials.video.t":"A short introduction to the onboarding programme",
-    "materials.video.p":"The first recording in a planned micro-learning series. It explains the programme's origins and the structure of the implementation model.",
-    "materials.lc1.e":"European programme",
-    "materials.lc1.p":"The main site of the Workplace Innovation for SMEs programme — context and activities across countries.",
-    "materials.lc2.e":"COVE Polska",
-    "materials.lc2.p":"Centre of Vocational Excellence and entry point for information about COVE Polska activities.",
-
-    "footer.about.h":"About the programme",
-    "footer.about.p":"An implementation programme run at Vocational School Complex no.&nbsp;5 in Wrocław as part of the European WIN4SMEs initiative. The goal is a transferable teacher-onboarding model — designed with other schools across Poland and Europe in mind.",
-    "footer.links.h":"Links",
-    "footer.links.yt":"YouTube — introductory video",
-    "footer.contact.h":"Contact",
-    "footer.contact.l1":"Vocational School Complex no. 5",
-    "footer.contact.l2":"5 Dawida Street, Wrocław",
-    "footer.fund":"Implementation programme co-funded by the European Union under the WIN4SMEs initiative (Workplace Innovation for SMEs).",
-    "footer.disclaimer":"Funded by the European Union. Views and opinions expressed are however those of the author(s) only and do not necessarily reflect those of the European Union or the European Education and Culture Executive Agency (EACEA). Neither the European Union nor EACEA can be held responsible for them."
-  },
-
-  de: {
-    "nav.program":"Programm",
-    "nav.goals":"Ziele",
-    "nav.challenges":"Herausforderungen",
-    "nav.wroclaw":"Wrocław",
-    "nav.materials":"Materialien",
-
-    "hero.eyebrow":"Generationenübergreifendes Mentoring in Schulen",
-    "hero.title":"Ein strukturiertes Einarbeitungsmodell für neue Lehrkräfte.",
-    "hero.lede":"Praktische, übertragbare Werkzeuge für Berufsanfänger:innen, Mentor:innen und Schulen — entwickelt am Berufsschulzentrum Nr.&nbsp;5 in Wrocław im Rahmen des europäischen Umsetzungsprogramms <b>WIN4SMEs</b>, kofinanziert durch die Europäische Union.",
-    "hero.cta_materials":"Materialien ansehen",
-    "hero.cta_win4smes":"WIN4SMEs-Website",
-    "hero.meta_authors":"Autoren",
-    "hero.meta_inst":"Einrichtung",
-    "hero.meta_inst_val":"ZSZ Nr. 5, Wrocław",
-    "hero.meta_program":"Programm",
-    "hero.meta_pilot":"Pilot",
-
-    "goals.eyebrow":"Ziele der Umsetzung",
-    "goals.title":"Wir wollen, dass das erste Berufsjahr <span class=\"accent-coral\">keine Lotterie mehr ist.</span>",
-    "goals.sub":"Drei Wirkungen, die wir für jede neue Lehrkraft — und für jede Schule, die unser Modell übernimmt — erreichen wollen.",
-    "goals.c1.t":"Sicherer Einstieg",
-    "goals.c1.p":"Jede neue Lehrkraft durchläuft — begleitet von einer Mentorin oder einem Mentor — einen strukturierten Pfad aus 7 Etappen, vom Tag vor Arbeitsbeginn bis zum Ende des Schuljahres. Klare Checklisten, klare Ansprechpartner, klare Abläufe.",
-    "goals.c1.l1":"Mentoring-Vereinbarung in der ersten Woche",
-    "goals.c1.l2":"ZSZ5-Kontaktlandkarte — wer, wann, wie",
-    "goals.c1.l3":"9 geplante Treffen im Schuljahr",
-    "goals.c2.t":"Transfer impliziten Wissens",
-    "goals.c2.p":"Die meisten Kompetenzen einer Lehrkraft sind erfahrungsbasiert — sie lassen sich nicht durch Vorschriften weitergeben. Mentoring + digitales Repositorium + kurze Videos: so bewahren wir, was heute mit jeder Verrentung verschwindet.",
-    "goals.c2.l1":"Praxis-Repositorium auf <a href=\"https://covepolska.pl\" target=\"_blank\" rel=\"noopener\">covepolska.pl</a>",
-    "goals.c2.l2":"Reflexionskarten und das OIF-Modell (Beobachtung → Wirkung → Frage)",
-    "goals.c2.l3":"Unterrichtsbeobachtungen als Gespräch, nicht als Bewertung",
-    "goals.c3.t":"Weniger Stress, weniger Abgänge",
-    "goals.c3.p":"Onboarding ist eine Investition in Wohlbefinden — der Lehrkraft und der Schule. Wir wollen die ersten Monate aus dem „Überlebensmodus“ holen und Menschen im Beruf halten, die die Schule wirklich braucht.",
-    "goals.c3.l1":"Wellbeing-Modul nach finnischem Vorbild",
-    "goals.c3.l2":"Individueller Entwicklungsplan (IEP) pro Semester",
-    "goals.c3.l3":"Programmevaluation zweimal pro Jahr",
-
-    "challenges.eyebrow":"Womit wir uns auseinandersetzen",
-    "challenges.title":"Das Schwierigste am Lehrberuf <span class=\"accent-coral\">ist nicht das Unterrichten.</span>",
-    "challenges.sub":"Gespräche und Befragungen mit 17 Berufsanfänger:innen und 57 erfahrenen Lehrkräften am ZSZ5 zeigten ganz andere Problemfelder.",
-    "challenges.s1.l":"Berufsanfänger:innen",
-    "challenges.s1.d":"0–3 Jahre Erfahrung — befragt zu Hürden beim Berufseinstieg.",
-    "challenges.s2.l":"Erfahrene Lehrkräfte",
-    "challenges.s2.d":"Mentor:innen und Beobachter:innen — bestätigten, was übertragbar ist und was nicht.",
-    "challenges.left.h":"Am schwersten für Berufsanfänger:innen",
-    "challenges.left.l1":"<b>Schulische Dokumentation</b> — E-Klassenbuch, Bewertungssystem, Listen, Protokolle",
-    "challenges.left.l2":"<b>Kommunikation mit Eltern</b> — besonders in schwierigen Situationen",
-    "challenges.left.l3":"<b>Rolle als Klassenleitung</b> — unbekannte Abläufe, keine Routine",
-    "challenges.left.l4":"<b>Schulkultur verstehen</b> — ungeschriebene Regeln, Hierarchien",
-    "challenges.left.l5":"<b>Stress und Belastung</b> — die ersten Monate sind eine „Überlebens“-Phase",
-    "challenges.right.h":"Was erfahrene Lehrkräfte bestätigen",
-    "challenges.right.l1":"<b>Wirksam</b> sind langfristiges Mentoring und Beratung — keine einmaligen Schulungen",
-    "challenges.right.l2":"<b>Es fehlen</b> strukturierte Mentoring-Werkzeuge — Erfahrene bewerten die Unterstützung selbst am niedrigsten",
-    "challenges.right.l3":"<b>Es verschwindet</b> Institutionswissen mit jeder Verrentung",
-    "challenges.right.l4":"<b>Die wichtigsten</b> Kompetenzen sind erfahrungsbasiert — nicht durch Vorschriften vermittelbar",
-    "challenges.quote":"Um mich in einer neuen Arbeit sicher zu fühlen, muss ich wissen, was als Nächstes passiert und an wen ich mich wenden kann.",
-    "challenges.quote_src":"— Wiederkehrende Aussage aus Gesprächen mit ZSZ5-Lehrkräften, 2025",
-
-    "wroclaw.eyebrow":"Was wir in Wrocław tun",
-    "wroclaw.title":"Drei verbundene Bausteine. <span class=\"accent-coral\">Ein zusammenhängendes Ökosystem.</span>",
-    "wroclaw.sub":"Das Berufsschulzentrum Nr. 5 in Wrocław pilotiert seit dem Schuljahr 2025/2026 ein dreiteiliges Onboarding-Modell — gedruckt, digital und Video parallel.",
-    "wroclaw.p1.n":"01 — Handbuch",
-    "wroclaw.p1.t":"Workbook für Mentor:in und Lehrkraft",
-    "wroclaw.p1.p":"Aufgaben für aufeinanderfolgende Arbeitsphasen, Checklisten, ein Zyklus konkreter Treffen im ersten Jahr, Reflexionskarten und IEP — alles in einem Arbeitsdokument mit Platz für Notizen.",
-    "wroclaw.p1.tag":"Pilotfassung 2025/2026",
-    "wroclaw.p2.n":"02 — Plattform",
-    "wroclaw.p2.t":"Roadmap zur Einarbeitung von Lehrkräften",
-    "wroclaw.p2.p":"Offene Seite, die Mentor:in und Lehrkraft durch die Phasen der Einarbeitung führt: von den ersten organisatorischen Entscheidungen bis zur Reflexion nach dem ersten Arbeitsjahr.",
-    "wroclaw.p3.n":"03 — Video",
-    "wroclaw.p3.t":"Mikrolernen",
-    "wroclaw.p3.p":"Kurze Clips, die zeigen, was in der jeweiligen Phase der Einarbeitung zu tun ist — verknüpft mit dem Handbuch und dem Rhythmus des Schuljahres. Das erste Einführungsvideo ist auf YouTube verfügbar.",
-    "wroclaw.p3.cta":"Auf YouTube ansehen",
-    "wroclaw.eco_h":"WIN4SMEs 4-Komponenten-Modell",
-    "wroclaw.eco.a_k":"Formale Mentor:in",
-    "wroclaw.eco.a_v":"Jede neue Lehrkraft hat eine zugewiesene, vergütete Mentor:in.",
-    "wroclaw.eco.b_k":"Transfer impliziten Wissens",
-    "wroclaw.eco.b_v":"Strukturierte Weitergabe institutionellen Know-hows.",
-    "wroclaw.eco.c_k":"Digitales Repositorium",
-    "wroclaw.eco.c_v":"„Lehrer-Wegweiser“ — offen für andere Schulen.",
-    "wroclaw.eco.d_k":"Checklisten + Treffen",
-    "wroclaw.eco.d_v":"9 Kontrollpunkte im Jahr — vom Vertrag bis zur Jahresbilanz.",
-
-    "materials.eyebrow":"Materialien und Links",
-    "materials.title":"Sehen Sie das Modell in Aktion.",
-    "materials.sub":"Einführungsvideo und Programm-Websites — an einem Ort.",
-    "materials.video.eyebrow":"Einführungsvideo",
-    "materials.video.t":"Kurze Einführung in das Onboarding-Programm",
-    "materials.video.p":"Die erste Aufnahme einer geplanten Mikro-Lernserie. Sie zeigt die Entstehung des Programms und die Struktur des Umsetzungsmodells.",
-    "materials.lc1.e":"Europäisches Programm",
-    "materials.lc1.p":"Hauptseite des Programms Workplace Innovation for SMEs — Kontext und Aktivitäten in anderen Ländern.",
-    "materials.lc2.e":"COVE Polska",
-    "materials.lc2.p":"Kompetenzzentrum für berufliche Bildung und Einstiegspunkt zu Informationen über die Aktivitäten von COVE Polska.",
-
-    "footer.about.h":"Über das Programm",
-    "footer.about.p":"Umsetzungsprogramm am Berufsschulzentrum Nr.&nbsp;5 in Wrocław im Rahmen der europäischen Initiative WIN4SMEs. Ziel ist ein übertragbares Modell der Lehrkräfte-Einarbeitung — mit Blick auf andere Schulen in Polen und Europa.",
-    "footer.links.h":"Links",
-    "footer.links.yt":"YouTube — Einführungsvideo",
-    "footer.contact.h":"Kontakt",
-    "footer.contact.l1":"Berufsschulzentrum Nr. 5",
-    "footer.contact.l2":"ul. Dawida 5, Wrocław",
-    "footer.fund":"Umsetzungsprogramm kofinanziert durch die Europäische Union im Rahmen der Initiative WIN4SMEs (Workplace Innovation for SMEs).",
-    "footer.disclaimer":"Finanziert von der Europäischen Union. Die geäußerten Ansichten und Meinungen sind jedoch ausschließlich die der Autor:innen und spiegeln nicht unbedingt die der Europäischen Union oder der Europäischen Exekutivagentur für Bildung und Kultur (EACEA) wider. Weder die Europäische Union noch die EACEA können dafür verantwortlich gemacht werden."
-  }
-};
-
-function applyLang(lang){
-  const dict = I18N[lang] || I18N.pl;
-  document.documentElement.lang = lang;
-  document.querySelectorAll('[data-i18n]').forEach(el => {
-    const k = el.getAttribute('data-i18n');
-    if (dict[k] != null) el.textContent = dict[k];
-  });
-  document.querySelectorAll('[data-i18n-html]').forEach(el => {
-    const k = el.getAttribute('data-i18n-html');
-    if (dict[k] != null) el.innerHTML = dict[k];
-  });
-  document.querySelectorAll('.lang-switch button').forEach(b => {
-    b.classList.toggle('active', b.dataset.lang === lang);
-  });
-  try { localStorage.setItem('lang', lang); } catch(e){}
-}
-
-document.querySelectorAll('.lang-switch button').forEach(b => {
-  b.addEventListener('click', () => applyLang(b.dataset.lang));
-});
-
-(function init(){
-  let saved = null;
-  try { saved = localStorage.getItem('lang'); } catch(e){}
-  const supported = ['pl','en','de'];
-  let lang = saved && supported.includes(saved) ? saved : null;
-  if (!lang) {
-    const nav = (navigator.language || 'pl').slice(0,2).toLowerCase();
-    lang = supported.includes(nav) ? nav : 'pl';
-  }
-  applyLang(lang);
-})();
-</script>
-
+  </footer>
+  <script src="assets/search-index.js?v=20260612-header-home-link"></script>
+  <script src="assets/app.js?v=20260612-header-home-link"></script>
 </body>
 </html>

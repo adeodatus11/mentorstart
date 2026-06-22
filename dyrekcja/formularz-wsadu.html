@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Formularz danych szkoły | Dyrekcja</title>
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../assets/styles.css?v=20260612-header-home-link">
+</head>
+<body>
+  <a class="skip-link" href="#main">Przejdź do treści</a>
+  <header class="site-header">
+    <div class="top-strip"><div class="brand-row"><a class="project-mark" href="../index.html" aria-label="Wiedza, która łączy - strona główna" title="Wróć na stronę główną"><img src="../assets/logos/mentoring-logo.png" alt="Mentoring nauczycieli"><div class="project-title"><strong>Wdrożenie nauczycieli</strong><span>WP3 A4 HR Management Program | COVE Polska</span></div></a><div class="logo-line" aria-label="Logotypy projektu"><img src="../assets/logos/win4smes-logo.png" alt="WIN4SMEs"><img src="../assets/logos/cove-polska-logo.png" alt="COVE Polska"><img src="../assets/logos/zsz5-logo.png" alt="Zespół Szkół Zawodowych nr 5 we Wrocławiu"><img class="eu-logo" src="../assets/logos/ue-dofinansowanie.png" alt="Dofinansowane przez Unię Europejską"></div></div></div>
+    <div class="nav-row"><button class="menu-button" type="button" data-menu-button aria-expanded="false" aria-controls="site-nav">Menu</button><nav class="site-nav" id="site-nav" data-site-nav aria-label="Nawigacja główna"><a href="../index.html">Start</a><a href="../mentor/index.html">Mentor</a><a href="../nauczyciel/index.html">Nauczyciel</a><a href="index.html" aria-current="page">Dyrekcja</a><a href="../narzedzia.html">Narzędzia</a><a href="../o-projekcie.html">O projekcie</a><a href="../zrodla.html">Źródła i Q&A</a></nav><div class="search-wrap"><label class="search-box"><span class="meta">Szukaj</span><input type="search" data-search placeholder="np. dane lokalne, kontakty, procedury"></label><div class="search-results" data-search-results aria-live="polite"></div></div></div>
+  </header>
+  <main id="main" class="main-wrap">
+    <nav class="breadcrumb" aria-label="Ścieżka"><a href="../index.html">Start</a><a href="index.html">Dyrekcja</a><span>Formularz danych szkoły</span></nav>
+    <section class="page-hero">
+      <p class="eyebrow">Formularz do uzupełnienia i wydruku</p>
+      <h1>Dane lokalne do pakietów informacyjnych</h1>
+      <p>Uzupełnij formularz danymi szkoły, a potem wydrukuj go jako roboczą kartę przygotowania pakietu dla mentora i nauczyciela początkującego. Wydruk zawiera logotypy projektu i szkoły.</p>
+      <div class="badges"><span class="badge local">Do lokalnego uzupełnienia</span><span class="badge project">WIN4SMEs / COVE Polska</span><span class="badge legal">Do zatwierdzenia w szkole</span></div>
+      <div class="button-row"><button class="button print-button" type="button" data-print>Drukuj / zapisz jako PDF</button><button class="button secondary" type="reset" form="local-input-form">Wyczyść formularz</button></div>
+    </section>
+
+    <div class="module-nav module-nav-wide" aria-label="Mapa modułu"><h2>W module</h2><nav><a href="index.html">Centrum dyrekcji</a><a href="wdrozenie.html">Droga wdrożenia</a><a href="formularz-wsadu.html" aria-current="page">Formularz danych szkoły</a></nav></div>
+
+    <form class="print-form" id="local-input-form">
+      <section class="print-form-header" aria-labelledby="form-title">
+        <div class="print-form-logos" aria-label="Logotypy projektu"><img src="../assets/logos/mentoring-logo.png" alt="Mentoring nauczycieli"><img src="../assets/logos/win4smes-logo.png" alt="WIN4SMEs"><img src="../assets/logos/cove-polska-logo.png" alt="COVE Polska"><img src="../assets/logos/zsz5-logo.png" alt="Zespół Szkół Zawodowych nr 5 we Wrocławiu"><img class="eu-logo" src="../assets/logos/ue-dofinansowanie.png" alt="Dofinansowane przez Unię Europejską"></div>
+        <div>
+          <p class="eyebrow">WP3 A4 HR Management Program | COVE Polska</p>
+          <h2 id="form-title">Formularz danych szkoły do pakietów informacyjnych</h2>
+          <p class="meta">Dokument roboczy dla dyrekcji lub koordynatora procesu wdrożenia. Po uzupełnieniu może być podstawą pakietu startowego dla nauczyciela i pakietu informacji dla mentora.</p>
+        </div>
+      </section>
+
+      <section class="form-section" aria-labelledby="meta-title">
+        <h2 id="meta-title">1. Metryka pakietu</h2>
+        <div class="form-grid">
+          <label class="form-field"><span>Nazwa szkoły</span><input type="text" name="school-name"></label>
+          <label class="form-field"><span>Rok szkolny</span><input type="text" name="school-year" placeholder="np. 2026/2027"></label>
+          <label class="form-field"><span>Koordynator procesu</span><input type="text" name="coordinator"></label>
+          <label class="form-field"><span>Osoba zatwierdzająca</span><input type="text" name="approver"></label>
+          <label class="form-field"><span>Data przygotowania</span><input type="date" name="prepared-date"></label>
+          <label class="form-field"><span>Data kolejnej aktualizacji</span><input type="date" name="review-date"></label>
+        </div>
+      </section>
+
+      <section class="form-section" aria-labelledby="contacts-title">
+        <h2 id="contacts-title">2. Osoby pierwszego kontaktu</h2>
+        <div class="table-wrap">
+          <table class="form-table">
+            <thead><tr><th>Obszar</th><th>Osoba / funkcja</th><th>Kontakt i dostępność</th><th>Uwagi</th></tr></thead>
+            <tbody>
+              <tr><td>Dyrekcja</td><td><input type="text" name="contact-director"></td><td><textarea name="contact-director-access"></textarea></td><td><textarea name="contact-director-notes"></textarea></td></tr>
+              <tr><td>Sekretariat / obieg dokumentów</td><td><input type="text" name="contact-office"></td><td><textarea name="contact-office-access"></textarea></td><td><textarea name="contact-office-notes"></textarea></td></tr>
+              <tr><td>Kadry / zatrudnienie</td><td><input type="text" name="contact-hr"></td><td><textarea name="contact-hr-access"></textarea></td><td><textarea name="contact-hr-notes"></textarea></td></tr>
+              <tr><td>Dziennik elektroniczny</td><td><input type="text" name="contact-register"></td><td><textarea name="contact-register-access"></textarea></td><td><textarea name="contact-register-notes"></textarea></td></tr>
+              <tr><td>Zastępstwa i nieobecności</td><td><input type="text" name="contact-substitutions"></td><td><textarea name="contact-substitutions-access"></textarea></td><td><textarea name="contact-substitutions-notes"></textarea></td></tr>
+              <tr><td>Pedagog / psycholog / specjaliści</td><td><input type="text" name="contact-specialists"></td><td><textarea name="contact-specialists-access"></textarea></td><td><textarea name="contact-specialists-notes"></textarea></td></tr>
+              <tr><td>IT, klucze, sale, sprzęt</td><td><input type="text" name="contact-it"></td><td><textarea name="contact-it-access"></textarea></td><td><textarea name="contact-it-notes"></textarea></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="form-section" aria-labelledby="access-title">
+        <h2 id="access-title">3. Dostępy, miejsca i organizacja pierwszego tygodnia</h2>
+        <div class="form-grid">
+          <label class="form-field"><span>Dziennik, poczta, dysk, systemy</span><textarea name="systems"></textarea></label>
+          <label class="form-field"><span>Klucze, sale, pracownie, sprzęt</span><textarea name="rooms-equipment"></textarea></label>
+          <label class="form-field"><span>Plan pierwszego dnia i tygodnia</span><textarea name="first-week-plan"></textarea></label>
+          <label class="form-field"><span>Najważniejsze miejsca w szkole</span><textarea name="important-places"></textarea></label>
+        </div>
+      </section>
+
+      <section class="form-section" aria-labelledby="documents-title">
+        <h2 id="documents-title">4. Dokumenty i linki startowe</h2>
+        <div class="table-wrap">
+          <table class="form-table">
+            <thead><tr><th>Dokument / obszar</th><th>Link lub miejsce przechowywania</th><th>Osoba odpowiedzialna</th><th>Data aktualizacji</th></tr></thead>
+            <tbody>
+              <tr><td>Statut szkoły</td><td><textarea name="doc-statute"></textarea></td><td><input type="text" name="doc-statute-owner"></td><td><input type="date" name="doc-statute-date"></td></tr>
+              <tr><td>Zasady oceniania / wymagania edukacyjne</td><td><textarea name="doc-grading"></textarea></td><td><input type="text" name="doc-grading-owner"></td><td><input type="date" name="doc-grading-date"></td></tr>
+              <tr><td>Procedury bezpieczeństwa i wypadku</td><td><textarea name="doc-safety"></textarea></td><td><input type="text" name="doc-safety-owner"></td><td><input type="date" name="doc-safety-date"></td></tr>
+              <tr><td>Kontakt z rodzicami i uczniami</td><td><textarea name="doc-parents"></textarea></td><td><input type="text" name="doc-parents-owner"></td><td><input type="date" name="doc-parents-date"></td></tr>
+              <tr><td>Instrukcja dziennika / systemów</td><td><textarea name="doc-register"></textarea></td><td><input type="text" name="doc-register-owner"></td><td><input type="date" name="doc-register-date"></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="form-section" aria-labelledby="calendar-title">
+        <h2 id="calendar-title">5. Kalendarz i terminy do przekazania</h2>
+        <div class="form-grid">
+          <label class="form-field"><span>Pierwszy tydzień pracy</span><textarea name="calendar-first-week"></textarea></label>
+          <label class="form-field"><span>Rady pedagogiczne i zebrania</span><textarea name="calendar-meetings"></textarea></label>
+          <label class="form-field"><span>Oceny przewidywane, klasyfikacja, koniec roku</span><textarea name="calendar-grading"></textarea></label>
+          <label class="form-field"><span>Rozmowy mentorskie i obserwacje</span><textarea name="calendar-mentoring"></textarea></label>
+        </div>
+      </section>
+
+      <section class="form-section" aria-labelledby="przekazanie-title">
+        <h2 id="przekazanie-title">6. Ścieżka przekazania sprawy dalej i sprawy trudne</h2>
+        <div class="table-wrap">
+          <table class="form-table">
+            <thead><tr><th>Sytuacja</th><th>Pierwszy kontakt</th><th>Procedura / dokument</th><th>Uwagi dla mentora i nauczyciela</th></tr></thead>
+            <tbody>
+              <tr><td>Trudność wychowawcza</td><td><input type="text" name="przekazanie-behavior-contact"></td><td><textarea name="przekazanie-behavior-procedure"></textarea></td><td><textarea name="przekazanie-behavior-notes"></textarea></td></tr>
+              <tr><td>Konflikt lub rozmowa z rodzicem</td><td><input type="text" name="przekazanie-parent-contact"></td><td><textarea name="przekazanie-parent-procedure"></textarea></td><td><textarea name="przekazanie-parent-notes"></textarea></td></tr>
+              <tr><td>Uczeń w kryzysie albo zagrożenie bezpieczeństwa</td><td><input type="text" name="przekazanie-crisis-contact"></td><td><textarea name="przekazanie-crisis-procedure"></textarea></td><td><textarea name="przekazanie-crisis-notes"></textarea></td></tr>
+              <tr><td>Dokumentacja formalna, klasyfikacja, dane uczniów</td><td><input type="text" name="przekazanie-doc-contact"></td><td><textarea name="przekazanie-doc-procedure"></textarea></td><td><textarea name="przekazanie-doc-notes"></textarea></td></tr>
+              <tr><td>Przeciążenie nauczyciela lub mentora</td><td><input type="text" name="przekazanie-load-contact"></td><td><textarea name="przekazanie-load-procedure"></textarea></td><td><textarea name="przekazanie-load-notes"></textarea></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="form-section" aria-labelledby="downloads-title">
+        <h2 id="downloads-title">7. Pliki i materiały do przygotowania</h2>
+        <p class="meta">Zaznacz materiały, które mają być dołączone do pakietu albo opublikowane w bibliotece narzędzi.</p>
+        <div class="form-checklist">
+          <label><input type="checkbox" name="file-start-pack"><span>Pakiet startowy nauczyciela</span></label>
+          <label><input type="checkbox" name="file-week-one"><span>Lista kontrolna pierwszego tygodnia</span></label>
+          <label><input type="checkbox" name="file-sprawdzanie-przebiegu"><span>Karta sprawdzania przebiegu procesu przez dyrekcję / koordynatora</span></label>
+          <label><input type="checkbox" name="file-reaction"><span>Procedury pierwszej reakcji i ścieżka przekazania sprawy właściwej osobie</span></label>
+          <label><input type="checkbox" name="file-classification"><span>Lista kontrolna klasyfikacji śródrocznej i rocznej</span></label>
+          <label><input type="checkbox" name="file-year-end"><span>Lista kontrolna końca roku i ewaluacji procesu</span></label>
+        </div>
+        <label class="form-field"><span>Uwagi do plików, linków i wersji</span><textarea name="download-notes"></textarea></label>
+      </section>
+
+      <section class="form-section" aria-labelledby="approval-title">
+        <h2 id="approval-title">8. Zatwierdzenie i aktualizacja</h2>
+        <div class="signature-grid">
+          <div class="signature-box"><strong>Przygotował/a</strong><br><br>Podpis / data:</div>
+          <div class="signature-box"><strong>Sprawdził/a merytorycznie</strong><br><br>Podpis / data:</div>
+          <div class="signature-box"><strong>Zatwierdził/a do użycia</strong><br><br>Podpis / data:</div>
+        </div>
+        <label class="form-field"><span>Co trzeba zaktualizować przy kolejnym przeglądzie</span><textarea name="review-notes"></textarea></label>
+      </section>
+    </form>
+
+    <nav class="section-nav" aria-label="Nawigacja kontekstowa"><a class="button secondary" href="wdrozenie.html">Poprzedni: Droga wdrożenia</a><a class="button" href="index.html">Wróć do centrum dyrekcji</a></nav>
+  </main>
+  <footer class="site-footer"><div class="footer-inner"><div><strong>Formularz danych szkoły | WIN4SMEs / COVE Polska</strong><p class="funding-note">Formularz jest roboczym narzędziem szkoły. Przed publikacją pakietów należy potwierdzić aktualne kontakty, dokumenty i procedury.</p></div><div class="footer-logos" aria-label="Linki projektowe"><a href="https://win4smes.eu/" aria-label="WIN4SMEs" target="_blank" rel="noopener"><img src="../assets/logos/win4smes-logo.png" alt="WIN4SMEs"></a><a href="https://covepolska.pl/" aria-label="COVE Polska" target="_blank" rel="noopener"><img src="../assets/logos/cove-polska-logo.png" alt="COVE Polska"></a><a href="https://ec.europa.eu/info/funding-tenders/opportunities/portal/screen/home" aria-label="Funding and Tenders Portal Komisji Europejskiej" target="_blank" rel="noopener"><img src="../assets/logos/ue-dofinansowanie.png" alt="Dofinansowane przez Unię Europejską"></a></div></div></footer>
+  <script src="../assets/search-index.js?v=20260612-header-home-link"></script>
+  <script src="../assets/app.js?v=20260612-header-home-link"></script>
+</body>
+</html>
