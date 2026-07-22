@@ -141,10 +141,15 @@ a:hover {
 
 .project-title span,
 .funding-note,
+.accessibility-note,
 .eyebrow,
 .meta {
   color: var(--muted);
   font-size: 0.88rem;
+}
+
+.accessibility-note {
+  margin-top: 8px;
 }
 
 .logo-line {
